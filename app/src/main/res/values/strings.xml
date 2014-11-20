@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">E-Nology</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="welcome">Welcome to E-nology</string>
+    <string name="action_settings">Settings</string>
+    <string name="text_button_signin">Sign Up</string>
+    <string name="text_edittext_email">E-mail Adress</string>
+    <string name="text_edittext_password">*********</string>
+    <string name="title_activity_my_menu">MyMenuActivity</string>
+    <string name="title_section1">Section 1</string>
+    <string name="title_section2">Section 2</string>
+    <string name="title_section3">Section 3</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="action_example">Example action</string>
+    <string name="title_activity_my_drawer">MyDrawerActivity</string>
+    <string name="menu_firstname">Florian</string>
+    <string name="menu_lastname">Do</string>
+    <string name="menu_location">Long Beach, CA</string>
+    <string name="menu_notifications_number">5</string>
+    <string name="title_activity_main">MainActivity</string>
+
+</resources>

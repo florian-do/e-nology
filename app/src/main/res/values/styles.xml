@@ -1,0 +1,42 @@
+<resources>
+
+    <!-- Login theme. -->
+    <style name="LoginScreen" parent="android:Theme.Holo.Light.NoActionBar">
+        <item name="android:textViewStyle">@style/TextViewStyle</item>
+    </style>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="android:Theme.Holo.Light">
+        <!-- Customize your theme here. -->
+        <item name="android:textViewStyle">@style/TextViewStyle</item>
+        <item name="android:actionBarStyle">@style/ActionBarStyle</item>
+    </style>
+
+    <!-- ActionBar styles -->
+    <style name="ActionBarStyle"
+        parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">
+        <item name="android:background">#eb8d69</item>
+        <item name="android:alpha">200</item>
+    </style>
+
+    <!-- Style to use for ALL text views (including FontTextView) -->
+    <style name="TextViewStyle"
+        parent="@android:style/Widget.Holo.Light.TextView">
+        <item name="android:textAppearance">@style/TextAppearance</item>
+    </style>
+
+    <!-- Text appearance to use for ALL text views (including FontTextView) -->
+    <style name="TextAppearance" parent="@android:style/TextAppearance.Holo">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">#ffffff</item>
+    </style>
+
+    <!-- Some attributes we need in all example text views -->
+    <style name="Default">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">5dp</item>
+        <item name="android:layout_marginBottom">5dp</item>
+    </style>
+
+</resources>

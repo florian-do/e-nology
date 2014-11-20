@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="5dip" >
+
+    <ImageView
+        android:id="@+id/menu_menu_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="6dip"
+        android:contentDescription="TODO"
+        android:src="@drawable/ic_launcher" />
+
+    <com.enology.fonts.FontTextView
+        android:id="@+id/menu_menu_categorie"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@id/menu_menu_icon"
+        android:ellipsize="marquee"
+        android:singleLine="true"
+        android:text="@string/hello_world"
+        android:textSize="20sp"
+        android:textColor="#ffffff"/>
+
+    <ImageView
+        android:id="@+id/menu_background_notifications"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/menu_background_notif"/>
+
+    <com.enology.fonts.FontTextView
+        android:id="@+id/menu_background_notifications_nb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/menu_background_notifications"
+        android:layout_alignTop="@+id/menu_background_notifications"
+        android:layout_alignRight="@+id/menu_background_notifications"
+        android:layout_alignBottom="@+id/menu_background_notifications"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:text="@string/menu_notifications_number"
+        android:textColor="#000000" />
+
+</RelativeLayout>

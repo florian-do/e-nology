@@ -1,0 +1,89 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_gravity="start"
+    android:background="#685e55"
+    tools:context="com.enology.eip.psdtest.NavigationDrawerFragment">
+
+    <RelativeLayout
+        android:id="@+id/menu_profil"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/avatar_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/avatar_final2"
+            android:layout_marginTop="68dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
+
+        <com.enology.fonts.FontTextView
+            android:id="@+id/menufirstname"
+            android:text="@string/menu_firstname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:textSize="25dp"
+            android:layout_below="@+id/avatar_image"
+            android:layout_alignLeft="@+id/avatar_image"
+            android:layout_alignStart="@+id/avatar_image" />
+
+        <com.enology.fonts.FontTextView
+            android:id="@+id/menulastname"
+            android:text="@string/menu_lastname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/menufirstname"
+            android:layout_alignTop="@+id/menufirstname"
+            android:layout_toRightOf="@+id/menufirstname"
+            android:layout_marginLeft="8dp"
+            android:textSize="25dp"/>
+
+        <com.enology.fonts.FontTextView
+            android:id="@+id/menulocation"
+            android:text="@string/menu_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#a49f99"
+            android:textSize="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_below="@+id/menufirstname"
+            android:layout_alignRight="@+id/avatar_image"
+            android:layout_alignEnd="@+id/avatar_image" />
+
+        <ImageView
+            android:id="@+id/menu_icon_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/location_pin"
+            android:layout_toStartOf="@+id/menulocation"
+            android:layout_marginRight="3dp"
+            android:layout_marginTop="1dp"
+            android:layout_alignTop="@+id/menulocation"
+            android:layout_toLeftOf="@+id/menulocation" />
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/menu_menu"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/menu_profil">
+
+        <ListView
+            android:id="@+id/menu_listview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginTop="75dp"
+            android:choiceMode="singleChoice" />
+
+    </RelativeLayout>
+
+</RelativeLayout>
