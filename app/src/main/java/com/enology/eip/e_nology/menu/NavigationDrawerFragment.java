@@ -1,5 +1,6 @@
 package com.enology.eip.e_nology.menu;
 
+
 import android.app.Activity;
 import android.app.ActionBar;
 import android.app.Fragment;
@@ -63,10 +64,9 @@ public class NavigationDrawerFragment extends Fragment {
     private boolean mFromSavedInstanceState;
     private boolean mUserLearnedDrawer;
 
-    private List <MenuObject> objects= new ArrayList<MenuObject>();
+    private List<MenuObject> objects= new ArrayList<MenuObject>();
 
-    public NavigationDrawerFragment()
-    {
+    public NavigationDrawerFragment() {
     }
 
     @Override
@@ -88,47 +88,39 @@ public class NavigationDrawerFragment extends Fragment {
     }
 
     @Override
-    public void onActivityCreated (Bundle savedInstanceState) {
+    public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         // Indicate that this fragment would like to influence the set of actions in the action bar.
         setHasOptionsMenu(true);
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-//        mDrawerListView = (ListView) inflater.inflate(
-//                R.layout.fragment_navigation_drawer, container, false);
-//        mDrawerListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                selectItem(position);
-//            }
-//        });
-//        mDrawerListView.setAdapter(new ArrayAdapter<String>(
-//                getActionBar().getThemedContext(),
-//                android.R.layout.simple_list_item_activated_1,
-//                android.R.id.text1,
-//                new String[]{
-//                        getString(R.string.title_section1),
-//                        getString(R.string.title_section2),
-//                        getString(R.string.title_section3),
-//                }));
-//        mDrawerListView.setItemChecked(mCurrentSelectedPosition, true);
-//        return mDrawerListView;
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
+    {
         View rootView = inflater.inflate(R.layout.fragment_navigation_drawer, container, false);
         ListView mDrawerListView = (ListView) rootView.findViewById(R.id.menu_listview);
-
         fillMenu();
+
+        mDrawerListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                selectItem(position);
+            }
+        });
+
         ListAdapter customAdapter = new MenuListAdapter(getActivity(), R.layout.list_adapter_menu, objects);
 
         mDrawerListView.setAdapter(customAdapter);
+
+        mDrawerListView.setItemChecked(mCurrentSelectedPosition, true);
         return rootView;
+
     }
+
 
     private void fillMenu()
     {
-        objects.add(new MenuObject(R.drawable.menu_icon_feed, "Feed", "5"));
+        objects.add(new MenuObject(R.drawable.menu_icon_feed, "Recipes", "5"));
         objects.add(new MenuObject(R.drawable.menu_icon_explore, "Explore", null));
         objects.add(new MenuObject(R.drawable.menu_icon_friends, "Friends", null));
         objects.add(new MenuObject(R.drawable.menu_icon_rewards, "Rewards", null));

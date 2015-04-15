@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/E-nology.iml" filepath="$PROJECT_DIR$/E-nology.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/e-nology-android.iml" filepath="$PROJECT_DIR$/e-nology-android.iml" />
     </modules>
   </component>
 </project>
-

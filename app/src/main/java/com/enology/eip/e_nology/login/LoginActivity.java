@@ -19,6 +19,9 @@ import android.widget.Toast;
 
 import com.enology.eip.e_nology.MainActivity;
 import com.enology.eip.e_nology.R;
+import com.enology.eip.e_nology.api.EnologyService;
+import com.enology.eip.e_nology.api.RestClient;
+import com.enology.eip.e_nology.api.json.LoginResponse;
 import com.jpardogo.android.googleprogressbar.library.NexusRotationCrossDrawable;
 
 import org.json.JSONException;
@@ -33,15 +36,25 @@ import java.net.URL;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
+import retrofit.Callback;
+import retrofit.RestAdapter;
+import retrofit.RetrofitError;
+import retrofit.client.Response;
+
+/*
+ * do_f e-nology
+ */
+
 public class LoginActivity extends Activity
 {
 
     public final static String DEBUG_TAG = "Network.debug";
     public final static String WEBSERVICE_HOST = "http://62-210-36-42.rev.poneytelecom.eu/";
+    //public final static String WEBSERVICE_HOST = "http://epitech-api.herokuapp.com/login";
     public final static String WEBSERVICE_ROUTES = "eip/client/login/";
+    //private final String USER_AGENT = "Mozilla/5.0";
     private EditText email;
     private EditText password;
-    private ImageButton signin;
     private ImageView logo;
     private ProgressBar loading;
 
@@ -60,22 +73,42 @@ public class LoginActivity extends Activity
         logo = (ImageView)findViewById(R.id.logo);
         loading.setIndeterminateDrawable(new NexusRotationCrossDrawable.Builder(this).build());
         fadeInAnimation = AnimationUtils.loadAnimation(this, R.anim.fadein);
-        signin = (ImageButton)findViewById(R.id.button_signin);
+        ImageButton signin = (ImageButton) findViewById(R.id.button_signin);
+
         signin.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view)
-            {
+            public void onClick(View view) {/*
                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                startActivity(intent);
-                ConnectivityManager connMgr = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
+                startActivity(intent);*/
+                ConnectivityManager connMgr = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
                 NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
                 if (networkInfo != null && networkInfo.isConnected())
                 {
+                    Log.d(DEBUG_TAG, "Network Info");
+                    String login = email.getText().toString();
+                    String pwd = toSha1(password.getText().toString());
+
+                    RestClient.get().login(login, pwd, new Callback<LoginResponse>() {
+                        @Override
+                        public void success(LoginResponse loginResponse, Response response) {
+                            // success!
+                            Log.d("App", loginResponse.getLogin());
+
+                            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                            startActivity(intent);
+                            // you get the point...
+                        }
+
+                        @Override
+                        public void failure(RetrofitError error) {
+                            Log.d("App", error.getMessage()+" | "+error.getUrl());
+                        }
+                    });
                     //new LoginTask().execute();
                 }
                 else
                 {
-                    Toast.makeText(getApplicationContext(), "No network connection available.", Toast.LENGTH_LONG).show(); //
+                    Toast.makeText(getApplicationContext(), "No network connection available.", Toast.LENGTH_SHORT).show(); //
                 }
             }
         });
@@ -101,7 +134,7 @@ public class LoginActivity extends Activity
             logo.setVisibility(View.INVISIBLE);
             loading.setVisibility(View.VISIBLE);
             //loading.setAnimation(fadeInAnimation);
-            Toast.makeText(getApplicationContext(), "Début du traitement asynchrone", Toast.LENGTH_LONG).show();
+            //Toast.makeText(getApplicationContext(), "Début du traitement asynchrone", Toast.LENGTH_LONG).show();
         }
 
         @Override
@@ -109,21 +142,25 @@ public class LoginActivity extends Activity
         {
             if (result != null)
             {
-                Log.d(DEBUG_TAG, result);
+                Log.d(DEBUG_TAG, "Result : "+result);
                 String login = parseJson(result);
+                Log.d(DEBUG_TAG, "LOGIN STRING :"+login+"EQUAL : "+login.equals("true"));
+                loading.setVisibility(View.INVISIBLE);
+                logo.setVisibility(View.VISIBLE);
                 if (login.equals("true"))
                 {
-                    loading.setVisibility(View.INVISIBLE);
-                    logo.setVisibility(View.VISIBLE);
+                    Log.d(DEBUG_TAG, "NEW ACTIVITY");
                     Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                     startActivity(intent);
                 }
                 else
-                    Toast.makeText(getApplicationContext(), "Login ou Mot de passe invalide", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "Login ou Mot de passe invalide", Toast.LENGTH_SHORT).show();
             }
-            else
-                Toast.makeText(getApplicationContext(), "Login ou Mot de passe invalide", Toast.LENGTH_LONG).show();
-
+            else {
+                loading.setVisibility(View.INVISIBLE);
+                logo.setVisibility(View.VISIBLE);
+                Toast.makeText(getApplicationContext(), "Login ou Mot de passe invalide", Toast.LENGTH_SHORT).show();
+            }
         }
     }
 
@@ -147,6 +184,7 @@ public class LoginActivity extends Activity
         String sha1 = toSha1(password.getText().toString());
         Log.d(DEBUG_TAG, sha1);
         String urlString = WEBSERVICE_HOST+WEBSERVICE_ROUTES+email.getText().toString()+"/"+sha1;
+        //String urlString = WEBSERVICE_HOST;
 
         try
         {
@@ -156,6 +194,7 @@ public class LoginActivity extends Activity
             conn.setConnectTimeout(15000 /* milliseconds */);
             conn.setRequestMethod("GET");
             conn.setDoInput(true);
+
             // Starts the query
             conn.connect();
             int response = conn.getResponseCode();
@@ -164,6 +203,7 @@ public class LoginActivity extends Activity
 
             // Convert the InputStream into a string
             String contentAsString = readIt(is);
+            Log.d(DEBUG_TAG, "Result : "+contentAsString);
             return contentAsString;
 
             // Makes sure that the InputStream is closed after the app is
