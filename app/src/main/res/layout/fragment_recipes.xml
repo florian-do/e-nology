@@ -9,7 +9,6 @@
         android:id="@+id/recipes_listview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="49dp"
         android:choiceMode="singleChoice" />
 
 </FrameLayout>

@@ -1,0 +1,258 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:background="#323542"
+    tools:context=".MyActivity">
+
+
+    <!--  Arrow Right -->
+
+    <ImageView
+        android:id="@+id/arrow_left"
+        android:background="@drawable/login_arrow_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:maxWidth="25dp"
+        android:maxHeight="25dp"
+        android:scaleType="fitCenter"
+        android:visibility="visible"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_toLeftOf="@+id/signup_message"
+        android:layout_toStartOf="@+id/signup_message"
+        android:layout_above="@+id/text_button_signup" />
+
+    <ImageView
+        android:id="@+id/separator_arrow_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/separator"
+        android:visibility="invisible"
+        android:layout_marginTop="25dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignLeft="@+id/signup_edittext_email_address"
+        android:layout_alignStart="@+id/signup_edittext_email_address" />
+
+    <com.enology.fonts.FontTextView
+        android:id="@+id/text_button_signup"
+        android:text="@string/text_login_fragment_signup_text_arrow_right"
+        android:textSize="15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/separator_arrow_right"
+        android:layout_alignRight="@+id/signup_separator"
+        android:layout_alignEnd="@+id/signup_separator" />
+
+    <!--  Arrow Right END -->
+
+    <com.enology.fonts.FontTextView
+        android:text="@string/text_login_fragment_signup_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="69dp"
+        android:id="@+id/signup_message"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:id="@+id/signup_separator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/separator"
+        android:layout_marginTop="16dp"
+        android:layout_below="@+id/signup_message"
+        android:layout_centerHorizontal="true" />
+
+    <com.jpardogo.android.googleprogressbar.library.GoogleProgressBar
+        android:id="@+id/google_progress"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/signup_separator"
+        android:layout_centerHorizontal="true"
+        android:visibility="invisible"/>
+
+    <ImageView
+        android:id="@+id/signup_anchor_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/separator"
+        android:layout_marginTop="13dp"
+        android:layout_below="@+id/signup_separator"
+        android:layout_toLeftOf="@+id/signup_separator"
+        android:layout_toStartOf="@+id/signup_separator"
+        android:visibility="invisible" />
+
+    <com.enology.fonts.FontEditText
+        android:id="@+id/signup_edittext_email_address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/txt_input"
+        android:hint="@string/text_edittext_email"
+        android:textColor="#797b81"
+        android:inputType="textEmailAddress"
+        android:editable="true"
+        android:singleLine="true"
+        android:layout_marginTop="40dp"
+        android:paddingLeft="46dp"
+        android:maxWidth="40dp"
+        android:layout_below="@+id/signup_separator"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:id="@+id/icon_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/icon_email"
+        android:layout_alignBottom="@+id/signup_edittext_email_address"
+        android:layout_toLeftOf="@+id/signup_anchor_icon"
+        android:layout_toStartOf="@+id/signup_anchor_icon"
+        android:layout_marginBottom="10dp" />
+
+
+
+    <com.enology.fonts.FontEditText
+        android:id="@+id/signup_edittext_firstname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/txt_input"
+        android:hint="@string/text_login_fragment_signup_hint_firstname"
+        android:textColor="#797b81"
+        android:inputType="text"
+        android:editable="true"
+        android:singleLine="true"
+        android:layout_marginTop="9dp"
+        android:layout_below="@+id/signup_edittext_email_address"
+        android:layout_alignLeft="@+id/signup_edittext_email_address"
+        android:layout_alignStart="@+id/signup_edittext_email_address"
+        android:paddingLeft="46dp"
+        android:maxWidth="40dp" />
+
+    <ImageView
+        android:id="@+id/icon_firstname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/icon_lastfirstname"
+        android:baselineAlignBottom="false"
+        android:layout_alignBottom="@+id/signup_edittext_firstname"
+        android:layout_alignLeft="@+id/icon_lastname"
+        android:layout_alignStart="@+id/icon_lastname"
+        android:layout_marginBottom="10dp" />
+
+
+
+    <com.enology.fonts.FontEditText
+        android:id="@+id/signup_edittext_lastname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/txt_input"
+        android:hint="@string/text_login_fragment_signup_hint_lastname"
+        android:textColor="#797b81"
+        android:inputType="text"
+        android:editable="true"
+        android:singleLine="true"
+        android:layout_marginTop="9dp"
+        android:layout_below="@+id/signup_edittext_firstname"
+        android:layout_alignLeft="@+id/signup_edittext_firstname"
+        android:layout_alignStart="@+id/signup_edittext_firstname"
+        android:paddingLeft="46dp"
+        android:maxWidth="40dp" />
+
+    <ImageView
+        android:id="@+id/icon_lastname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/icon_lastfirstname"
+        android:layout_centerVertical="true"
+        android:layout_alignLeft="@+id/icon_email"
+        android:layout_alignStart="@+id/icon_email" />
+
+
+
+    <com.enology.fonts.FontEditText
+        android:id="@+id/signup_edittext_username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/txt_input"
+        android:hint="@string/text_login_fragment_signup_hint_username"
+        android:textColor="#797b81"
+        android:inputType="text"
+        android:editable="true"
+        android:singleLine="true"
+        android:layout_marginTop="9dp"
+        android:layout_below="@+id/signup_edittext_lastname"
+        android:layout_alignLeft="@+id/signup_edittext_lastname"
+        android:layout_alignStart="@+id/signup_edittext_lastname"
+        android:paddingLeft="46dp"
+        android:maxWidth="40dp" />
+
+    <ImageView
+        android:id="@+id/icon_username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/icon_lastfirstname"
+        android:layout_alignBottom="@+id/signup_edittext_username"
+        android:layout_alignLeft="@+id/icon_lastname"
+        android:layout_alignStart="@+id/icon_lastname"
+        android:layout_marginBottom="10dp" />
+
+
+
+    <com.enology.fonts.FontEditText
+        android:id="@+id/signup_edittext_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/txt_input"
+        android:hint="@string/text_edittext_password"
+        android:textColor="#797b81"
+        android:inputType="textPassword"
+        android:editable="true"
+        android:singleLine="true"
+        android:layout_marginTop="9dp"
+        android:layout_below="@+id/signup_edittext_username"
+        android:layout_alignLeft="@+id/signup_edittext_username"
+        android:layout_alignStart="@+id/signup_edittext_username"
+        android:paddingLeft="46dp"
+        android:maxWidth="40dp" />
+
+    <ImageView
+        android:id="@+id/icon_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/icon_password"
+        android:baselineAlignBottom="true"
+        android:clickable="false"
+        android:cropToPadding="false"
+        android:layout_alignBottom="@+id/signup_edittext_password"
+        android:layout_alignLeft="@+id/icon_username"
+        android:layout_alignStart="@+id/icon_username"
+        android:layout_marginBottom="10dp" />
+
+    <!-- Sign Up BUTTON-->
+
+    <ImageButton
+        android:id="@+id/button_signup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button_signin"
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/signup_edittext_email_address"
+        android:layout_alignStart="@+id/signup_edittext_email_address"
+        android:layout_marginBottom="25dp" />
+
+    <com.enology.fonts.FontTextView
+        android:id="@+id/text_button_signin"
+        android:text="@string/text_login_fragment_signup_button_signup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/button_signup"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="7dp" />
+
+</RelativeLayout>

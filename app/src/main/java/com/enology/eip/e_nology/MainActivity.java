@@ -5,11 +5,13 @@ import android.app.Activity;
 import android.app.ActionBar;
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -17,6 +19,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.support.v4.widget.DrawerLayout;
 import android.view.Window;
+import android.widget.FrameLayout;
 import android.widget.Toast;
 
 import com.enology.eip.e_nology.menu.NavigationDrawerFragment;
@@ -24,7 +27,7 @@ import com.enology.eip.e_nology.recipes.RecipesFragment;
 
 
 public class MainActivity extends Activity implements NavigationDrawerFragment.NavigationDrawerCallbacks,
-        RecipesFragment.OnFragmentInteractionListener{
+        RecipesFragment.OnFragmentInteractionListener {
 
     /**
      * Fragment managing the behaviors, interactions and presentation of the navigation drawer.
@@ -189,5 +192,16 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
     public void onFragmentInteraction(Uri uri)
     {
         Toast.makeText(this, "chat", Toast.LENGTH_SHORT).show();
+    }
+
+    public static int CalculateActionBar(Context context){
+        // Calculate ActionBar height
+        TypedValue tv = new TypedValue();
+        if (context.getTheme().resolveAttribute(android.R.attr.actionBarSize, tv, true)) {
+
+            int mActionBarHeight = TypedValue.complexToDimensionPixelSize(tv.data, context.getResources().getDisplayMetrics());
+            return mActionBarHeight;
+        }
+        return 0;
     }
 }

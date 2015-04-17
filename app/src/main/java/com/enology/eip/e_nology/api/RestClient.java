@@ -13,7 +13,7 @@ import retrofit.client.OkClient;
 public class RestClient
 {
     private static EnologyService restClient;
-    private static String WEBSERVICE_HOST = "http://62-210-36-42.rev.poneytelecom.eu/eip/client/";
+    private static String WEBSERVICE_HOST = "https://salty-gorge-2041.herokuapp.com/";
 
     static {
         setupRestClient();
@@ -26,13 +26,11 @@ public class RestClient
 
     public static EnologyService get()
     {
-        Log.d("REST_CLIENT", "get");
         return restClient;
     }
 
     private static void setupRestClient()
     {
-        Log.d("REST_CLIENT", "setupRestClient");
         RestAdapter restAdapter = new RestAdapter.Builder()
                 .setEndpoint(WEBSERVICE_HOST)
                 .setClient(new OkClient(new OkHttpClient()))

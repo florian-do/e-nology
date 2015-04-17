@@ -30,6 +30,9 @@ public class FontTextView extends TextView
     }
 
     public void setFont() {
+        if (this.isInEditMode()) {
+            return;
+        }
         Typeface mTypeface = Typeface.createFromAsset(getContext().getAssets(), "fonts/HelveticaNeue-Thin.otf");
         setTypeface(mTypeface);
     }
