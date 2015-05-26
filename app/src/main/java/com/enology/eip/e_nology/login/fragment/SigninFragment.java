@@ -23,6 +23,7 @@ import android.widget.ProgressBar;
 
 import com.enology.eip.e_nology.MainActivity;
 import com.enology.eip.e_nology.R;
+import com.enology.eip.e_nology.SplashActivity;
 import com.enology.eip.e_nology.api.RestClient;
 import com.enology.eip.e_nology.api.json.CreateUserResponse;
 import com.enology.eip.e_nology.api.json.LoginResponse;
@@ -39,6 +40,7 @@ public class SigninFragment extends Fragment {
 
     private EditText    username;
     private EditText    password;
+    private ImageButton signin;
 
     private ImageView   logo;
     private ProgressBar loading;
@@ -47,26 +49,30 @@ public class SigninFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
+        Log.d(DEBUG_TAG, "OnCreateView");
         View rootView = inflater.inflate(R.layout.login_fragment_signin, container, false);
 
         username = (EditText) rootView.findViewById(R.id.edittext_email_address);
         password = (EditText) rootView.findViewById(R.id.edittext_password);
+
+        username.setText("chat");
+        password.setText("pusheen016");
 
         loading = (ProgressBar) rootView.findViewById(R.id.google_progress);
         logo = (ImageView) rootView.findViewById(R.id.logo);
         loading.setIndeterminateDrawable(new NexusRotationCrossDrawable.Builder(getActivity()).build());
         fadeInAnimation = AnimationUtils.loadAnimation(getActivity(), R.anim.fadein);
 
-        ImageButton signin = (ImageButton) rootView.findViewById(R.id.button_signin);
+        signin = (ImageButton) rootView.findViewById(R.id.button_signin);
 
         signin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 ConnectivityManager connMgr = (ConnectivityManager) getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
                 NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
                 if (networkInfo != null && networkInfo.isConnected())
                 {
+                    signin.setClickable(false);
                     Log.d(DEBUG_TAG, "Network Info");
                     LoginResponse tmp = new LoginResponse(username.getText().toString(),
                             password.getText().toString());
@@ -80,14 +86,16 @@ public class SigninFragment extends Fragment {
                             logo.setVisibility(View.VISIBLE);
                             loading.setVisibility(View.INVISIBLE);
 
-                            Log.d(DEBUG_TAG, "SUCCESS : " + loginResponse.getUsername() + " | " + loginResponse.getPassword() + " RESPOSNE : " + response.getStatus());
+                            Log.d(DEBUG_TAG, "SUCCESS : " + loginResponse.getUsername() + " RESPOSNE : " + response.getStatus());
 
-                            Intent intent = new Intent(getActivity(), MainActivity.class);
+                            signin.setClickable(true);
+                            Intent intent = new Intent(getActivity(), SplashActivity.class);
                             startActivity(intent);
                         }
 
                         @Override
                         public void failure(RetrofitError error) {
+                            signin.setClickable(true);
                             logo.setVisibility(View.VISIBLE);
                             loading.setVisibility(View.INVISIBLE);
                             String json =  new String(((TypedByteArray)error.getResponse().getBody()).getBytes());

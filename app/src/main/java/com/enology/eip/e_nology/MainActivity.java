@@ -19,12 +19,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.support.v4.widget.DrawerLayout;
 import android.view.Window;
-import android.widget.FrameLayout;
 import android.widget.Toast;
 
 import com.enology.eip.e_nology.menu.NavigationDrawerFragment;
-import com.enology.eip.e_nology.recipes.RecipesFragment;
-
+import com.enology.eip.e_nology.recipes.fragment.RecipesFragment;
 
 public class MainActivity extends Activity implements NavigationDrawerFragment.NavigationDrawerCallbacks,
         RecipesFragment.OnFragmentInteractionListener {
@@ -51,7 +49,8 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
 
         final ActionBar actionBar = getActionBar();
         //actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
-        actionBar.setBackgroundDrawable(new ColorDrawable(Color.argb(128, 235, 141, 105)));
+        //actionBar.setBackgroundDrawable(new ColorDrawable(Color.argb(128, 235, 141, 105)));
+        actionBar.setBackgroundDrawable(new ColorDrawable(Color.argb(190, 50, 53, 66)));
 
         mNavigationDrawerFragment = (NavigationDrawerFragment)
                 getFragmentManager().findFragmentById(R.id.navigation_drawer);
@@ -178,6 +177,7 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_main, container, false);
+
             return rootView;
         }
 
@@ -192,16 +192,5 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
     public void onFragmentInteraction(Uri uri)
     {
         Toast.makeText(this, "chat", Toast.LENGTH_SHORT).show();
-    }
-
-    public static int CalculateActionBar(Context context){
-        // Calculate ActionBar height
-        TypedValue tv = new TypedValue();
-        if (context.getTheme().resolveAttribute(android.R.attr.actionBarSize, tv, true)) {
-
-            int mActionBarHeight = TypedValue.complexToDimensionPixelSize(tv.data, context.getResources().getDisplayMetrics());
-            return mActionBarHeight;
-        }
-        return 0;
     }
 }

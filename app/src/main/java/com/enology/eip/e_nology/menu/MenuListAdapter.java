@@ -29,25 +29,42 @@ public class MenuListAdapter extends ArrayAdapter<MenuObject>
         this.objects = objects;
     }
 
+    static class    ViewHolder
+    {
+        TextView    label;
+        ImageView   image;
+        TextView    notification;
+        ImageView   notification_bg;
+    }
+
     @Override
     public View getView(int position, View convertView, ViewGroup parent)
     {
-        LayoutInflater mInflate = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View rawView = mInflate.inflate(this.resource, parent, false);
+        LayoutInflater  mInflate = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        ViewHolder      holder;
+
+        if (convertView == null)
+        {
+            convertView = mInflate.inflate(this.resource, parent, false);
+            holder = new ViewHolder();
+            holder.label = (TextView)convertView.findViewById(R.id.menu_menu_categorie);
+            holder.image = (ImageView)convertView.findViewById(R.id.menu_menu_icon);
+            holder.notification = (TextView) convertView.findViewById(R.id.menu_background_notifications_nb);
+            holder.notification_bg = (ImageView)convertView.findViewById(R.id.menu_background_notifications);
+            convertView.setTag(holder);
+        }
+        else
+            holder = (ViewHolder) convertView.getTag();
         MenuObject object = (MenuObject)objects.get(position);
-        TextView label = (TextView)rawView.findViewById(R.id.menu_menu_categorie);
-        label.setText(object.getText());
-        ImageView image = (ImageView)rawView.findViewById(R.id.menu_menu_icon);
-        image.setImageDrawable(context.getResources().getDrawable(object.getImage()));
-        TextView notification = (TextView)rawView.findViewById(R.id.menu_background_notifications_nb);
-        ImageView notification_bg = (ImageView)rawView.findViewById(R.id.menu_background_notifications);
+        holder.label.setText(object.getText());
+        holder.image.setImageDrawable(context.getResources().getDrawable(object.getImage()));
         if (object.getNumber() != null)
-            notification.setText(object.getNumber());
+            holder.notification.setText(object.getNumber());
         else
         {
-            notification.setText("");
-            notification_bg.setVisibility(View.INVISIBLE);
+            holder.notification.setText("");
+            holder.notification_bg.setVisibility(View.INVISIBLE);
         }
-        return rawView;
+        return convertView;
     }
 }

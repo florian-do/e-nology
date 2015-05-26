@@ -1,20 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
 
     <ImageView
-        android:id="@+id/recipe_image"
+        android:id="@+id/recipes_grid_base"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/recipe_img"/>
+        android:background="@drawable/recipes_grid_base"/>
 
     <ImageView
-        android:id="@+id/recipe_bar"
+        android:id="@+id/recipes_grid_image_back"
+        android:visibility="invisible"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/recipes_grid_image_back"
+        android:layout_margin="5dp" />
+
+    <ImageView
+        android:id="@+id/recipes_grid_image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/wine_1"
+        android:layout_margin="5dp" />
+
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@drawable/recipe_bar"
-        android:layout_alignBottom="@+id/recipe_image"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_below="@+id/recipes_grid_image"
+        android:layout_marginLeft="3dp"
+        android:layout_marginRight="3dp">
 
+        <com.enology.fonts.FontTextView
+            android:id="@+id/recipes_grid_text"
+            android:text="@string/action_example"
+            android:textColor="@color/green"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </RelativeLayout>
 </RelativeLayout>

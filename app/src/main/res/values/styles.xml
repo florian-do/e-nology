@@ -1,7 +1,12 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Login theme. -->
     <style name="LoginScreen" parent="android:Theme.Holo.Light.NoActionBar">
+        <item name="android:textViewStyle">@style/TextViewStyle</item>
+    </style>
+
+    <!-- Splash theme. -->
+    <style name="SplashScreen" parent="android:Theme.Holo.Light.NoActionBar">
         <item name="android:textViewStyle">@style/TextViewStyle</item>
     </style>
 
@@ -15,7 +20,7 @@
     <!-- ActionBar styles -->
     <style name="ActionBarStyle"
         parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">
-        <item name="android:background">#eb8d69</item>
+        <item name="android:background">@color/background_color</item>
         <item name="android:alpha">200</item>
     </style>
 

@@ -1,4 +1,4 @@
-package com.enology.eip.e_nology.recipes;
+package com.enology.eip.e_nology.recipes.object;
 
 /**
  * Created by Lolo on 27/02/2015.

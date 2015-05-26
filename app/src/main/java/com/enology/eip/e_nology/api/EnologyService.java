@@ -2,6 +2,9 @@ package com.enology.eip.e_nology.api;
 
 import com.enology.eip.e_nology.api.json.CreateUserResponse;
 import com.enology.eip.e_nology.api.json.LoginResponse;
+import com.enology.eip.e_nology.api.json.getBottlesResponse;
+
+import java.util.List;
 
 import retrofit.Callback;
 import retrofit.http.Body;
@@ -19,4 +22,7 @@ public interface EnologyService
 
     @POST("/auth/signin")
     void login(@Body LoginResponse user, Callback<LoginResponse> callback);
+
+    @GET("/bottles")
+    void getBottles(Callback<List<getBottlesResponse>> callback);
 }

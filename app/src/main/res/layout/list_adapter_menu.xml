@@ -6,6 +6,11 @@
     android:orientation="horizontal"
     android:padding="5dip" >
 
+    <View
+        android:id="@+id/view1"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp" />
+
     <ImageView
         android:id="@+id/menu_menu_icon"
         android:layout_width="wrap_content"
@@ -14,6 +19,7 @@
         android:layout_alignParentTop="true"
         android:layout_marginRight="6dip"
         android:contentDescription="TODO"
+        android:layout_centerVertical="true"
         android:src="@drawable/ic_launcher" />
 
     <com.enology.fonts.FontTextView
@@ -22,6 +28,7 @@
         android:layout_height="match_parent"
         android:layout_alignParentBottom="true"
         android:layout_toRightOf="@id/menu_menu_icon"
+        android:layout_centerVertical="true"
         android:ellipsize="marquee"
         android:singleLine="true"
         android:text="@string/hello_world"
@@ -33,6 +40,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
         android:background="@drawable/menu_background_notif"/>
 
     <com.enology.fonts.FontTextView
@@ -48,5 +56,11 @@
         android:gravity="center"
         android:text="@string/menu_notifications_number"
         android:textColor="#000000" />
+
+    <View
+        android:id="@+id/view2"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:layout_alignParentBottom="true"/>
 
 </RelativeLayout>
