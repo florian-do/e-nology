@@ -5,12 +5,14 @@ import android.app.FragmentManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.enology.eip.e_nology.R;
 import com.enology.eip.e_nology.cave.scanner.ScannerFragment;
@@ -24,10 +26,29 @@ import com.enology.eip.e_nology.cave.scanner.ScannerFragment;
  * create an instance of this fragment.
  */
 public class CaveFragment extends Fragment {
-    private OnFragmentInteractionListener mListener;
 
-    public static CaveFragment newInstance() {
-        return new CaveFragment();
+    private final static String     ARG_CONTENT = "arg_content";
+    private final static String     ARG_FORMATNAME = "arg_formatname";
+
+    private OnFragmentInteractionListener mListener;
+    private String  Content;
+    private String  FormatName;
+
+    private TextView    scannerContent;
+    private TextView    scannerFormatName;
+
+    public static CaveFragment newInstance(String content, String FormatName) {
+        if (content != null && FormatName != null)
+        {
+            CaveFragment fragment = new CaveFragment();
+            Bundle args = new Bundle();
+            args.putString(ARG_CONTENT, content);
+            args.putString(ARG_FORMATNAME, FormatName);
+            fragment.setArguments(args);
+            return fragment;
+        }
+        else
+            return new CaveFragment();
     }
 
     public CaveFragment() {
@@ -38,12 +59,25 @@ public class CaveFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
+        if (getArguments() != null) {
+            Content = getArguments().getString(ARG_CONTENT);
+            FormatName = getArguments().getString(ARG_FORMATNAME);
+        }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.cave_fragment, container, false);
+        View view = inflater.inflate(R.layout.cave_fragment, container, false);
+        scannerContent = (TextView) view.findViewById(R.id.scanner_content);
+        scannerFormatName = (TextView) view.findViewById(R.id.scanner_formatname);
+
+        if (Content != null && FormatName != null)
+        {
+            scannerContent.setText(Content);
+            scannerFormatName.setText(FormatName);
+        }
+        return view;
     }
 
     @Override
@@ -86,7 +120,6 @@ public class CaveFragment extends Fragment {
     }
 
     public interface OnFragmentInteractionListener {
-        public void addBottleFromScanner();
+        //public void addBottleFromScanner();
     }
-
 }

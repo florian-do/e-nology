@@ -25,7 +25,8 @@ import com.enology.eip.e_nology.recipes.fragment.RecipesFragment;
 
 public class MainActivity extends Activity implements NavigationDrawerFragment.NavigationDrawerCallbacks,
         RecipesFragment.OnFragmentInteractionListener,
-        CaveFragment.OnFragmentInteractionListener {
+        CaveFragment.OnFragmentInteractionListener,
+        ScannerFragment.OnFragmentInteractionListener {
 
     /**
      * Fragment managing the behaviors, interactions and presentation of the navigation drawer.
@@ -73,11 +74,13 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
             case 0:
                 fragmentManager.beginTransaction()
                         .replace(R.id.container, RecipesFragment.newInstance())
+                        .addToBackStack(null)
                         .commit();
                 break;
             case 1:
                 fragmentManager.beginTransaction()
-                        .replace(R.id.container, CaveFragment.newInstance())
+                        .replace(R.id.container, CaveFragment.newInstance(null, null))
+                        .addToBackStack(null)
                         .commit();
                 break;
             case 2:
@@ -88,6 +91,7 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
             case 3:
                 fragmentManager.beginTransaction()
                         .replace(R.id.container, ScannerFragment.newInstance())
+                        .addToBackStack(null)
                         .commit();
                 break;
         }
@@ -204,7 +208,12 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
     }
 
     @Override
-    public void addBottleFromScanner() {
-
+    public void addBottleFromScanner(String content, String FormatName) {
+        Log.d(DEBUG_TAG, "addBottleFromScanner");
+        FragmentManager fragmentManager = getFragmentManager();
+        fragmentManager.beginTransaction()
+                .replace(R.id.container, CaveFragment.newInstance(content, FormatName))
+                .addToBackStack(null)
+                .commit();
     }
 }

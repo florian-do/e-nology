@@ -1,6 +1,7 @@
 package com.enology.eip.e_nology.cave.scanner;
 
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.util.Log;
@@ -20,6 +21,7 @@ import me.dm7.barcodescanner.zbar.ZBarScannerView;
 public class ScannerFragment extends Fragment implements ZBarScannerView.ResultHandler
 {
     private final static String DEBUG_TAG = "scanner";
+    private OnFragmentInteractionListener mListener;
 
     public static ScannerFragment newInstance() {
         return new ScannerFragment();
@@ -46,16 +48,36 @@ public class ScannerFragment extends Fragment implements ZBarScannerView.ResultH
 
     @Override
     public void handleResult(Result rawResult) {
-        Toast.makeText(getActivity(), "Contents = " + rawResult.getContents() +
-                ", Format = " + rawResult.getBarcodeFormat().getName(), Toast.LENGTH_SHORT).show();
         Log.v(DEBUG_TAG, rawResult.getContents()); // Prints scan results
         Log.v(DEBUG_TAG, rawResult.getBarcodeFormat().getName()); // Prints the scan format (qrcode, pdf417 etc.)
-        getActivity().getFragmentManager().popBackStack();
+        if (mListener != null)
+            mListener.addBottleFromScanner(rawResult.getContents(), rawResult.getBarcodeFormat().getName());
     }
 
     @Override
     public void onPause() {
         super.onPause();
         mScannerView.stopCamera();
+    }
+
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        try {
+            mListener = (OnFragmentInteractionListener) activity;
+        } catch (ClassCastException e) {
+            throw new ClassCastException(activity.toString()
+                    + " must implement OnFragmentInteractionListener");
+        }
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        mListener = null;
+    }
+
+    public interface OnFragmentInteractionListener {
+        public void addBottleFromScanner(String content, String FormatName);
     }
 }
