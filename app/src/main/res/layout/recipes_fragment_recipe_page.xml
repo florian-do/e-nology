@@ -1,0 +1,53 @@
+<ScrollView  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_color">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background_color"
+        tools:context="com.enology.eip.e_nology.recipes.fragment.RecipePageFragment">
+
+        <ImageView
+            android:id="@+id/recipe_page_grid_base"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/recipes_grid_base"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="25dp" />
+
+        <ImageView
+            android:id="@+id/recipe_page_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/wine_1"
+            android:layout_marginTop="25dp"
+            android:layout_alignTop="@+id/recipe_page_grid_base"
+            android:layout_centerHorizontal="true" />
+
+        <com.enology.fonts.FontTextView
+            android:id="@+id/recipe_page_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name"
+            android:layout_below="@+id/recipe_page_grid_base"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp" />
+
+        <com.enology.fonts.FontTextView
+            android:id="@+id/recipe_page_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name"
+            android:textSize="15dp"
+            android:layout_below="@+id/recipe_page_text"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"/>
+
+    </RelativeLayout>
+
+</ScrollView>

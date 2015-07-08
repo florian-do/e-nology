@@ -4,12 +4,19 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
+
+        <meta-data android:name="AA_DB_NAME" android:value="enology.db" />
+        <meta-data android:name="AA_DB_VERSION" android:value="1" />
+        <meta-data android:name="AA_MODELS"
+            android:value="com.enology.eip.e_nology.orm.model.Bottle, com.enology.eip.e_nology.orm.model.Domain" />
+
         <activity
             android:name=".login.LoginActivity"
             android:label="@string/app_name"

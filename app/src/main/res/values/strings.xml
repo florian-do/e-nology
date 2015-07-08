@@ -31,14 +31,12 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="action_example">Example action</string>
     <string name="title_activity_my_drawer">MyDrawerActivity</string>
-    <string name="menu_firstname">Florian</string>
-    <string name="menu_lastname">Do</string>
-    <string name="menu_location">Long Beach, CA</string>
     <string name="menu_notifications_number">5</string>
     <string name="title_activity_main">MainActivity</string>
 
 <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_splash">SplashActivity</string>
+    <string name="eurotmp">33,99 €</string>
 
 </resources>

@@ -5,13 +5,10 @@ import android.app.Activity;
 import android.app.ActionBar;
 import android.app.Fragment;
 import android.app.FragmentManager;
-import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
-import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
-import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -19,13 +16,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.support.v4.widget.DrawerLayout;
 import android.view.Window;
-import android.widget.Toast;
 
+import com.enology.eip.e_nology.cave.fragment.CaveFragment;
+import com.enology.eip.e_nology.cave.scanner.ScannerFragment;
 import com.enology.eip.e_nology.menu.NavigationDrawerFragment;
+import com.enology.eip.e_nology.recipes.fragment.RecipePageFragment;
 import com.enology.eip.e_nology.recipes.fragment.RecipesFragment;
 
 public class MainActivity extends Activity implements NavigationDrawerFragment.NavigationDrawerCallbacks,
-        RecipesFragment.OnFragmentInteractionListener {
+        RecipesFragment.OnFragmentInteractionListener,
+        CaveFragment.OnFragmentInteractionListener {
 
     /**
      * Fragment managing the behaviors, interactions and presentation of the navigation drawer.
@@ -37,7 +37,7 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
      */
     private CharSequence mTitle;
 
-    public final static String DEBUG_TAG = "Navigation.debug";
+    public final static String DEBUG_TAG = "MainActivity.debug";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,17 +72,22 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
         {
             case 0:
                 fragmentManager.beginTransaction()
-                        .replace(R.id.container, RecipesFragment.newInstance("1", "2"))
+                        .replace(R.id.container, RecipesFragment.newInstance())
                         .commit();
                 break;
             case 1:
                 fragmentManager.beginTransaction()
-                        .replace(R.id.container, PlaceholderFragment.newInstance(position + 1))
+                        .replace(R.id.container, CaveFragment.newInstance())
                         .commit();
                 break;
             case 2:
                 fragmentManager.beginTransaction()
                         .replace(R.id.container, PlaceholderFragment.newInstance(position + 1))
+                        .commit();
+                break;
+            case 3:
+                fragmentManager.beginTransaction()
+                        .replace(R.id.container, ScannerFragment.newInstance())
                         .commit();
                 break;
         }
@@ -189,8 +194,17 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
         }
     }
 
-    public void onFragmentInteraction(Uri uri)
+    public void onBottleSelected(String id, String name)
     {
-        Toast.makeText(this, "chat", Toast.LENGTH_SHORT).show();
+        FragmentManager fragmentManager = getFragmentManager();
+        fragmentManager.beginTransaction()
+                .replace(R.id.container, RecipePageFragment.newInstance(id, name))
+                .addToBackStack(null)
+                .commit();
+    }
+
+    @Override
+    public void addBottleFromScanner() {
+
     }
 }

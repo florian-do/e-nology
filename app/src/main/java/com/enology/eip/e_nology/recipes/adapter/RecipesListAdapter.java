@@ -33,7 +33,8 @@ public class RecipesListAdapter extends ArrayAdapter<getBottlesResponse>
 
 
     static class ViewHolder {
-        TextView    txt;
+        TextView    name;
+        TextView    domain;
         ImageView   img;
     }
 
@@ -56,8 +57,9 @@ public class RecipesListAdapter extends ArrayAdapter<getBottlesResponse>
         {
             convertView = mInflate.inflate(this.resource, parent, false);
             holder = new ViewHolder();
-            holder.txt = (TextView) convertView.findViewById(R.id.recipes_grid_text);
-            holder.img = (ImageView) convertView.findViewById(R.id.recipes_grid_image);
+            holder.name = (TextView) convertView.findViewById(R.id.recipes_list_name);
+            holder.domain = (TextView) convertView.findViewById(R.id.recipes_list_domain);
+            holder.img = (ImageView) convertView.findViewById(R.id.recipes_list_image);
             convertView.setTag(holder);
         }
         else
@@ -65,7 +67,8 @@ public class RecipesListAdapter extends ArrayAdapter<getBottlesResponse>
 
         Drawable tmp = this.context.getResources().getDrawable(getRandom());
         holder.img.setImageDrawable(tmp);
-        holder.txt.setText(objects.get(position).getName());
+        holder.name.setText(objects.get(position).getName());
+        holder.domain.setText(objects.get(position).getDomain().getCity());
         return convertView;
     }
 

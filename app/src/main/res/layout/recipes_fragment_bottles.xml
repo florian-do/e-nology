@@ -18,19 +18,10 @@
         cube_ptr:ptr_ratio_of_header_height_to_refresh="1.2"
         cube_ptr:ptr_resistance="1.7">
 
-            <GridView
-                android:id="@+id/recipes_grid"
-                android:numColumns="2"
-                android:gravity="center"
-                android:horizontalSpacing="15dp"
-                android:verticalSpacing="15dp"
-                android:scrollbars="none"
-                android:stretchMode="columnWidth"
-                android:layout_marginRight="15dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginTop="15dp"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent" />
+        <ListView
+            android:id="@+id/recipes_list"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" />
 
     </in.srain.cube.views.ptr.PtrClassicFrameLayout>
 
