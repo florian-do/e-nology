@@ -4,7 +4,8 @@
     <string name="app_name">E-Nology</string>
     <string name="hello_world">Hello world!</string>
     <string name="welcome">Welcome to E-nology</string>
-    <string name="action_settings">Settings</string>
+    <string name="action_settings_add_scanner">Add from scanner</string>
+    <string name="action_settings_add">Add a bottle</string>
     <string name="text_button_signin">Sign in</string>
     <string name="text_button_signup">New here ? Sign up</string>
     <string name="text_button_password_recovery">Forgot password ?</string>
@@ -34,7 +35,7 @@
     <string name="menu_notifications_number">5</string>
     <string name="title_activity_main">MainActivity</string>
 
-<!-- TODO: Remove or change this placeholder text -->
+<!-- TODO: Remove this text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_splash">SplashActivity</string>
     <string name="eurotmp">33,99 €</string>

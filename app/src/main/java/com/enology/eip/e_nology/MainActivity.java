@@ -93,8 +93,12 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
                 break;
             case 3:
                 fragmentManager.beginTransaction()
-                        .replace(R.id.container, ScannerFragment.newInstance())
-                        .addToBackStack(null)
+                        .replace(R.id.container, PlaceholderFragment.newInstance(position + 1))
+                        .commit();
+                break;
+            case 4:
+                fragmentManager.beginTransaction()
+                        .replace(R.id.container, PlaceholderFragment.newInstance(position + 1))
                         .commit();
                 break;
         }

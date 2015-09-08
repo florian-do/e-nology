@@ -3,8 +3,12 @@
 
     <item
         android:id="@+id/menu_add"
-        android:icon="@drawable/ic_add_black"
-        android:title="@string/eurotmp"
-        android:showAsAction="withText|ifRoom" />
+        android:title="@string/action_settings_add"
+        android:showAsAction="never" />
+
+    <item
+        android:id="@+id/menu_add_scanner"
+        android:title="@string/action_settings_add_scanner"
+        android:showAsAction="never" />
 
 </menu>

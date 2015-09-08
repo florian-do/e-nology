@@ -15,6 +15,12 @@
         <!-- Customize your theme here. -->
         <item name="android:textViewStyle">@style/TextViewStyle</item>
         <item name="android:actionBarStyle">@style/ActionBarStyle</item>
+        <item name="android:actionOverflowButtonStyle">@style/OverFlow</item>
+    </style>
+
+    <!-- Styles -->
+    <style name="OverFlow" parent="@android:style/Widget.Holo.ActionButton.Overflow">
+        <item name="android:src">@drawable/ic_add_black</item>
     </style>
 
     <!-- ActionBar styles -->

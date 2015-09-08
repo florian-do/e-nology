@@ -167,8 +167,7 @@ public class CaveFragment extends Fragment {
     }
 
     @Override
-    public void onCreateOptionsMenu(
-            Menu menu, MenuInflater inflater) {
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         inflater.inflate(R.menu.menu_cave, menu);
     }
 
@@ -177,7 +176,7 @@ public class CaveFragment extends Fragment {
         // handle item selection
         FragmentManager fragmentManager = getFragmentManager();
         switch (item.getItemId()) {
-            case R.id.menu_add:
+            case R.id.menu_add_scanner:
                 fragmentManager.beginTransaction()
                         .replace(R.id.container, ScannerFragment.newInstance())
                         .addToBackStack(null)
