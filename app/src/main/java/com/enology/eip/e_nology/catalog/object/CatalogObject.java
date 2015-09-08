@@ -1,13 +1,13 @@
-package com.enology.eip.e_nology.recipes.object;
+package com.enology.eip.e_nology.catalog.object;
 
 /**
  * Created by Lolo on 27/02/2015.
  */
-public class RecipeObject
+public class CatalogObject
 {
     String recipeName;
 
-    public RecipeObject(String recipeName)
+    public CatalogObject(String recipeName)
     {
         this.recipeName = recipeName;
     }

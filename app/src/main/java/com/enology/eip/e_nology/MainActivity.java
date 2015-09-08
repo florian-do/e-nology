@@ -23,11 +23,11 @@ import com.enology.eip.e_nology.cave.fragment.CaveFragment;
 import com.enology.eip.e_nology.cave.fragment.CavePageFragment;
 import com.enology.eip.e_nology.cave.scanner.ScannerFragment;
 import com.enology.eip.e_nology.menu.NavigationDrawerFragment;
-import com.enology.eip.e_nology.recipes.fragment.RecipePageFragment;
-import com.enology.eip.e_nology.recipes.fragment.RecipesFragment;
+import com.enology.eip.e_nology.catalog.fragment.CatalogPageFragment;
+import com.enology.eip.e_nology.catalog.fragment.CatalogFragment;
 
 public class MainActivity extends Activity implements NavigationDrawerFragment.NavigationDrawerCallbacks,
-        RecipesFragment.OnFragmentInteractionListener,
+        CatalogFragment.OnFragmentInteractionListener,
         CaveFragment.OnFragmentInteractionListener,
         ScannerFragment.OnFragmentInteractionListener {
 
@@ -82,7 +82,7 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
                 break;
             case 1:
                 fragmentManager.beginTransaction()
-                        .replace(R.id.container, RecipesFragment.newInstance())
+                        .replace(R.id.container, CatalogFragment.newInstance())
                         .addToBackStack(null)
                         .commit();
             break;
@@ -209,7 +209,7 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
     {
         FragmentManager fragmentManager = getFragmentManager();
         fragmentManager.beginTransaction()
-                .replace(R.id.container, RecipePageFragment.newInstance(bottles))
+                .replace(R.id.container, CatalogPageFragment.newInstance(bottles))
                 .addToBackStack(null)
                 .commit();
     }

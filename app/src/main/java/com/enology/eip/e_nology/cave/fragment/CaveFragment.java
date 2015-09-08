@@ -2,7 +2,6 @@ package com.enology.eip.e_nology.cave.fragment;
 
 import android.app.Activity;
 import android.app.FragmentManager;
-import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.util.Log;
@@ -19,11 +18,9 @@ import android.widget.TextView;
 
 import com.enology.eip.e_nology.R;
 import com.enology.eip.e_nology.api.RestClient;
-import com.enology.eip.e_nology.api.json.getBottlesResponse;
 import com.enology.eip.e_nology.api.json.getCaveResponse;
 import com.enology.eip.e_nology.cave.adapter.CaveListAdapter;
 import com.enology.eip.e_nology.cave.scanner.ScannerFragment;
-import com.enology.eip.e_nology.recipes.adapter.RecipesListAdapter;
 
 import java.util.List;
 

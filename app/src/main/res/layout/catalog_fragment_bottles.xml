@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context="com.enology.eip.e_nology.recipes.fragment.RecipesFragment" >
+    tools:context="com.enology.eip.e_nology.catalog.fragment.CatalogFragment" >
 
     <in.srain.cube.views.ptr.PtrClassicFrameLayout
         android:id="@+id/ptr_frame"

@@ -1,34 +1,23 @@
-package com.enology.eip.e_nology.recipes.fragment;
+package com.enology.eip.e_nology.catalog.fragment;
 
 import android.app.Activity;
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
-import android.support.annotation.NonNull;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.GridView;
 import android.widget.ImageView;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.enology.eip.e_nology.R;
-import com.enology.eip.e_nology.SplashActivity;
 import com.enology.eip.e_nology.api.RestClient;
-import com.enology.eip.e_nology.api.json.LoginResponse;
 import com.enology.eip.e_nology.api.json.getBottlesResponse;
-import com.enology.eip.e_nology.recipes.adapter.RecipesListAdapter;
+import com.enology.eip.e_nology.catalog.adapter.CatalogListAdapter;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
 import java.util.List;
-import java.util.ListIterator;
 
 import in.srain.cube.views.ptr.PtrClassicFrameLayout;
 import in.srain.cube.views.ptr.PtrDefaultHandler;
@@ -37,37 +26,36 @@ import in.srain.cube.views.ptr.PtrHandler;
 import retrofit.Callback;
 import retrofit.RetrofitError;
 import retrofit.client.Response;
-import retrofit.mime.TypedByteArray;
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link RecipesFragment.OnFragmentInteractionListener} interface
+ * {@link CatalogFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link RecipesFragment#newInstance} factory method to
+ * Use the {@link CatalogFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class RecipesFragment extends Fragment
+public class CatalogFragment extends Fragment
 {
     private View rootView;
 
     private List<getBottlesResponse> bottles;
 
-    private RecipesListAdapter      rAdapter;
+    private CatalogListAdapter rAdapter;
     private ListView                listView;
     private ImageView               recipes_ic_sync;
     private TextView                recipes_ic_text;
     private PtrClassicFrameLayout   mPtrFrame;
 
-    public static final String DEBUG_TAG = "RecipesFragment";
+    public static final String DEBUG_TAG = "CatalogFragment";
 
     private OnFragmentInteractionListener mListener;
 
-    public static RecipesFragment newInstance() {
-        return new RecipesFragment();
+    public static CatalogFragment newInstance() {
+        return new CatalogFragment();
     }
 
-    public RecipesFragment() {
+    public CatalogFragment() {
         // Required empty public constructor
     }
 
@@ -78,7 +66,7 @@ public class RecipesFragment extends Fragment
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.recipes_fragment_bottles, container, false);
+        View view = inflater.inflate(R.layout.catalog_fragment_bottles, container, false);
         listView = (ListView) view.findViewById(R.id.recipes_list);
         recipes_ic_sync = (ImageView) view.findViewById(R.id.recipes_ic_sync);
         recipes_ic_text= (TextView) view.findViewById(R.id.recipes_ic_text);
@@ -101,7 +89,7 @@ public class RecipesFragment extends Fragment
                 Log.d(DEBUG_TAG, "SUCCESS : RESPOSNE : " + response.getStatus());
                 bottles = bottlesResponse;
                 if (rAdapter == null) {
-                    rAdapter = new RecipesListAdapter(getActivity(), R.layout.list_adapter_recipes, bottles);
+                    rAdapter = new CatalogListAdapter(getActivity(), R.layout.list_adapter_catalog, bottles);
                 }
                 listView.setAdapter(rAdapter);
             }
@@ -172,7 +160,7 @@ public class RecipesFragment extends Fragment
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
-        Log.d("RecipesFragment", "onAttach");
+        Log.d("CatalogFragment", "onAttach");
         try {
             mListener = (OnFragmentInteractionListener) activity;
         } catch (ClassCastException e) {
@@ -184,7 +172,7 @@ public class RecipesFragment extends Fragment
     @Override
     public void onDetach() {
         super.onDetach();
-        Log.d("RecipesFragment", "onDetach");
+        Log.d("CatalogFragment", "onDetach");
         mListener = null;
     }
 

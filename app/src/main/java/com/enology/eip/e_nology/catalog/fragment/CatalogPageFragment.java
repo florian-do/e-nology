@@ -1,7 +1,5 @@
-package com.enology.eip.e_nology.recipes.fragment;
+package com.enology.eip.e_nology.catalog.fragment;
 
-import android.app.Activity;
-import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.view.LayoutInflater;
@@ -12,25 +10,21 @@ import android.widget.TextView;
 import com.enology.eip.e_nology.R;
 import com.enology.eip.e_nology.api.json.getBottlesResponse;
 
-import org.w3c.dom.Text;
-
-import java.io.Serializable;
-
-public class RecipePageFragment extends Fragment {
+public class CatalogPageFragment extends Fragment {
 
     private static final String ARG_PARAM1 = "_bottles";
 
     private getBottlesResponse  bottles;
 
-    public static RecipePageFragment newInstance(getBottlesResponse bottles) {
-        RecipePageFragment fragment = new RecipePageFragment();
+    public static CatalogPageFragment newInstance(getBottlesResponse bottles) {
+        CatalogPageFragment fragment = new CatalogPageFragment();
         Bundle args = new Bundle();
         args.putSerializable(ARG_PARAM1, bottles);
         fragment.setArguments(args);
         return fragment;
     }
 
-    public RecipePageFragment() {
+    public CatalogPageFragment() {
         // Required empty public constructor
     }
 
@@ -46,7 +40,7 @@ public class RecipePageFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.recipes_fragment_recipe_page, container, false);
+        return inflater.inflate(R.layout.catalog_fragment_catalog_page, container, false);
     }
 
     public void onActivityCreated(final Bundle savedInstanceState) {

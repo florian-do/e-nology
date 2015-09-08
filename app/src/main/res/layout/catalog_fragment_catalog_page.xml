@@ -8,7 +8,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:context="com.enology.eip.e_nology.recipes.fragment.RecipePageFragment">
+        tools:context="com.enology.eip.e_nology.catalog.fragment.CatalogPageFragment">
 
         <ImageView
             android:id="@+id/recipe_page_image"
@@ -93,7 +93,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="com.enology.eip.e_nology.recipes.fragment.RecipePageFragment">
+        tools:context="com.enology.eip.e_nology.catalog.fragment.CatalogPageFragment">
 
         <com.enology.fonts.FontTextView
             android:id="@+id/recipe_page_desc"
