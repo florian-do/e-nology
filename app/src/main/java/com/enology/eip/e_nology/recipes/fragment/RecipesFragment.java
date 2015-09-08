@@ -64,7 +64,6 @@ public class RecipesFragment extends Fragment
     private OnFragmentInteractionListener mListener;
 
     public static RecipesFragment newInstance() {
-        //RecipesFragment fragment = new RecipesFragment();
         return new RecipesFragment();
     }
 
@@ -120,7 +119,7 @@ public class RecipesFragment extends Fragment
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Log.d(DEBUG_TAG, bottles.get(position).getName());
                 if (mListener != null) {
-                    mListener.onBottleSelected(bottles.get(position).getDesc(), bottles.get(position).getName());
+                    mListener.onBottleSelected(bottles.get(position));
                 }
             }
         });
@@ -190,6 +189,6 @@ public class RecipesFragment extends Fragment
     }
 
     public interface OnFragmentInteractionListener {
-        public void onBottleSelected(String id, String name);
+        public void onBottleSelected(getBottlesResponse bottles);
     }
 }

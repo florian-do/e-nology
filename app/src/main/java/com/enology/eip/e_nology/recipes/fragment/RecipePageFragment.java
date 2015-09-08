@@ -10,19 +10,22 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.enology.eip.e_nology.R;
+import com.enology.eip.e_nology.api.json.getBottlesResponse;
+
+import org.w3c.dom.Text;
+
+import java.io.Serializable;
 
 public class RecipePageFragment extends Fragment {
 
-    private static final String ARG_PARAM1 = "_id";
+    private static final String ARG_PARAM1 = "_bottles";
 
-    private String _id;
-    private String _name;
+    private getBottlesResponse  bottles;
 
-    public static RecipePageFragment newInstance(String _id, String name) {
+    public static RecipePageFragment newInstance(getBottlesResponse bottles) {
         RecipePageFragment fragment = new RecipePageFragment();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, _id);
-        args.putString("name", name);
+        args.putSerializable(ARG_PARAM1, bottles);
         fragment.setArguments(args);
         return fragment;
     }
@@ -35,8 +38,7 @@ public class RecipePageFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            _id = getArguments().getString(ARG_PARAM1);
-            _name = getArguments().getString("name");
+            bottles = (getBottlesResponse) getArguments().getSerializable(ARG_PARAM1);
         }
     }
 
@@ -49,11 +51,12 @@ public class RecipePageFragment extends Fragment {
 
     public void onActivityCreated(final Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        TextView textView = (TextView) getView().findViewById(R.id.recipe_page_text);
-        textView.setText(_name);
+        TextView name = (TextView) getView().findViewById(R.id.recipe_page_text);
         TextView desc = (TextView) getView().findViewById(R.id.recipe_page_desc);
-        desc.setText(_id);
+        TextView city = (TextView) getView().findViewById(R.id.recipe_page_city);
+
+        name.setText(bottles.getName());
+        desc.setText(bottles.getDesc());
+        city.setText(bottles.getDomain().getCity()+", "+bottles.getYear());
     }
-
-
 }

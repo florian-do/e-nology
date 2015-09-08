@@ -121,10 +121,11 @@ public class NavigationDrawerFragment extends Fragment {
 
     private void fillMenu()
     {
-        objects.add(new MenuObject(R.drawable.ic_menu_grappe, "Catalogue", null));
-        objects.add(new MenuObject(R.drawable.ic_menu_cave, "Ma cave", null));
-        objects.add(new MenuObject(R.drawable.ic_menu_vin, "Mes vins", null));
-        objects.add(new MenuObject(R.drawable.ic_menu_region, "Achat", null));
+        objects.add(new MenuObject(R.drawable.ic_menu_cave, "My Cave", null));
+        objects.add(new MenuObject(R.drawable.ic_menu_grappe, "Catalog", null));
+        objects.add(new MenuObject(R.drawable.ic_menu_recette, "Recipes", null));
+        objects.add(new MenuObject(R.drawable.ic_menu_actu, "News", null));
+        objects.add(new MenuObject(R.drawable.ic_menu_actu, "Statistics", null));
     }
 
     public boolean isDrawerOpen() {

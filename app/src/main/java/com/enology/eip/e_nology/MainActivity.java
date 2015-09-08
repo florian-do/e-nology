@@ -17,7 +17,10 @@ import android.view.ViewGroup;
 import android.support.v4.widget.DrawerLayout;
 import android.view.Window;
 
+import com.enology.eip.e_nology.api.json.getBottlesResponse;
+import com.enology.eip.e_nology.api.json.getCaveResponse;
 import com.enology.eip.e_nology.cave.fragment.CaveFragment;
+import com.enology.eip.e_nology.cave.fragment.CavePageFragment;
 import com.enology.eip.e_nology.cave.scanner.ScannerFragment;
 import com.enology.eip.e_nology.menu.NavigationDrawerFragment;
 import com.enology.eip.e_nology.recipes.fragment.RecipePageFragment;
@@ -73,16 +76,16 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
         {
             case 0:
                 fragmentManager.beginTransaction()
-                        .replace(R.id.container, RecipesFragment.newInstance())
+                        .replace(R.id.container, CaveFragment.newInstance())
                         .addToBackStack(null)
                         .commit();
                 break;
             case 1:
                 fragmentManager.beginTransaction()
-                        .replace(R.id.container, CaveFragment.newInstance(null, null))
+                        .replace(R.id.container, RecipesFragment.newInstance())
                         .addToBackStack(null)
                         .commit();
-                break;
+            break;
             case 2:
                 fragmentManager.beginTransaction()
                         .replace(R.id.container, PlaceholderFragment.newInstance(position + 1))
@@ -198,11 +201,21 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
         }
     }
 
-    public void onBottleSelected(String id, String name)
+    public void onBottleSelected(getBottlesResponse bottles)
     {
         FragmentManager fragmentManager = getFragmentManager();
         fragmentManager.beginTransaction()
-                .replace(R.id.container, RecipePageFragment.newInstance(id, name))
+                .replace(R.id.container, RecipePageFragment.newInstance(bottles))
+                .addToBackStack(null)
+                .commit();
+    }
+
+
+    @Override
+    public void onCaveSelected(getCaveResponse cave) {
+        FragmentManager fragmentManager = getFragmentManager();
+        fragmentManager.beginTransaction()
+                .replace(R.id.container, CavePageFragment.newInstance(cave))
                 .addToBackStack(null)
                 .commit();
     }
@@ -212,7 +225,7 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
         Log.d(DEBUG_TAG, "addBottleFromScanner");
         FragmentManager fragmentManager = getFragmentManager();
         fragmentManager.beginTransaction()
-                .replace(R.id.container, CaveFragment.newInstance(content, FormatName))
+                .replace(R.id.container, CaveFragment.newInstance())
                 .addToBackStack(null)
                 .commit();
     }

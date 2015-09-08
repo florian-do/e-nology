@@ -3,6 +3,7 @@ package com.enology.eip.e_nology.api;
 import com.enology.eip.e_nology.api.json.CreateUserResponse;
 import com.enology.eip.e_nology.api.json.LoginResponse;
 import com.enology.eip.e_nology.api.json.getBottlesResponse;
+import com.enology.eip.e_nology.api.json.getCaveResponse;
 
 import java.util.List;
 
@@ -25,4 +26,7 @@ public interface EnologyService
 
     @GET("/bottles")
     void getBottles(Callback<List<getBottlesResponse>> callback);
+
+    @GET("/caves/{id}/myBottles")
+    void getCave(@Path("id") String id, Callback<List<getCaveResponse>> callback);
 }

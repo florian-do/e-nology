@@ -8,10 +8,10 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:context="com.enology.eip.e_nology.recipes.fragment.RecipePageFragment">
+        tools:context="com.enology.eip.e_nology.cave.fragment.CavePageFragment">
 
         <ImageView
-            android:id="@+id/recipe_page_image"
+            android:id="@+id/cave_page_image"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/recipes_bottle_preview"
@@ -19,22 +19,22 @@
             android:layout_centerHorizontal="true" />
 
         <com.enology.fonts.FontTextView
-            android:id="@+id/recipe_page_text"
+            android:id="@+id/cave_page_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/app_name"
-            android:layout_below="@+id/recipe_page_image"
+            android:layout_below="@+id/cave_page_image"
             android:textColor="@color/black"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="15dp" />
 
         <com.enology.fonts.FontTextView
-            android:id="@+id/recipe_page_city"
+            android:id="@+id/cave_page_city"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/app_name"
-            android:layout_below="@+id/recipe_page_text"
+            android:layout_below="@+id/cave_page_text"
             android:textColor="@color/black"
             android:layout_marginTop="5dp"
             android:layout_marginLeft="20dp"
@@ -44,8 +44,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:layout_below="@+id/recipe_page_image"
-            android:layout_toRightOf="@+id/recipe_page_text"
+            android:layout_below="@+id/cave_page_image"
+            android:layout_toRightOf="@+id/cave_page_text"
             android:orientation="horizontal">
 
             <ImageView
@@ -91,10 +91,10 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="com.enology.eip.e_nology.recipes.fragment.RecipePageFragment">
+        tools:context="com.enology.eip.e_nology.cave.fragment.CavePageFragment">
 
         <com.enology.fonts.FontTextView
-            android:id="@+id/recipe_page_desc"
+            android:id="@+id/cave_page_desc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/app_name"
