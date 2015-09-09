@@ -108,16 +108,32 @@
         android:layout_height="match_parent"
         tools:context="com.enology.eip.e_nology.cave.fragment.CavePageFragment">
 
-        <com.enology.fonts.FontTextView
-            android:id="@+id/cave_page_desc"
+        <ScrollView
+            android:id="@+id/cave_scroll"
+            android:layout_width="match_parent"
+            android:layout_height="150dp">
+
+            <com.enology.fonts.FontTextView
+                android:id="@+id/cave_page_desc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/app_name"
+                android:textColor="@color/black"
+                android:textSize="15dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"/>
+
+        </ScrollView>
+
+
+        <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/app_name"
-            android:textColor="@color/black"
-            android:textSize="15dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"/>
+            android:layout_below="@+id/catalog_scroll"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:text="@string/catalog_page_drink"/>
 
     </RelativeLayout>
 

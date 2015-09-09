@@ -77,6 +77,13 @@
 
         </LinearLayout>
 
+        <com.enology.fonts.FontTextView
+            android:id="@+id/cave_adapter_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/recipes_red_price"
+            android:text="@string/euro"/>
+
     </LinearLayout>
 
 </LinearLayout>

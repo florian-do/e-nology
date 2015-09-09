@@ -34,6 +34,7 @@ public class CaveListAdapter extends ArrayAdapter<getCaveResponse>
         TextView    name;
         TextView    domain;
         TextView    year;
+        TextView    price;
         ImageView   img;
         List<ImageView>     mark = new ArrayList<ImageView>();
     }
@@ -61,6 +62,7 @@ public class CaveListAdapter extends ArrayAdapter<getCaveResponse>
             holder.domain = (TextView) convertView.findViewById(R.id.cave_list_domain);
             holder.img = (ImageView) convertView.findViewById(R.id.cave_list_image);
             holder.year = (TextView) convertView.findViewById(R.id.cave_list_year);
+            holder.price = (TextView) convertView.findViewById(R.id.cave_adapter_price);
             holder.mark.add((ImageView) convertView.findViewById(R.id.cave_adapter_mark_1));
             holder.mark.add((ImageView) convertView.findViewById(R.id.cave_adapter_mark_2));
             holder.mark.add((ImageView) convertView.findViewById(R.id.cave_adapter_mark_3));
@@ -76,6 +78,7 @@ public class CaveListAdapter extends ArrayAdapter<getCaveResponse>
         holder.name.setText(objects.get(position).getName());
         holder.domain.setText(objects.get(position).getCru());
         holder.year.setText(objects.get(position).getYear());
+        holder.price.setText(objects.get(position).getPrice()+" "+context.getString(R.string.euro));
 
         for (int i = 0; i < objects.get(position).getGrade(); i++)
         {

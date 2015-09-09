@@ -38,6 +38,10 @@
     <string name="title_activity_my_drawer">MyDrawerActivity</string>
     <string name="menu_notifications_number">5</string>
     <string name="title_activity_main">MainActivity</string>
+    <string name="cave_page_redeem">Redeem</string>
+    <string name="cave_page_remove">Remove</string>
+    <string name="catalog_page_drink">Drink IT</string>
+    <string name="catalog_page_buy">Remove</string>
 
 <!-- TODO: Remove this text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
