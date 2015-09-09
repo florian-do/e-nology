@@ -6,6 +6,7 @@
     <string name="welcome">Welcome to E-nology</string>
     <string name="action_settings_add_scanner">Add from scanner</string>
     <string name="action_settings_add">Add a bottle</string>
+    <string name="action_search">Search</string>
     <string name="text_button_signin">Sign in</string>
     <string name="text_button_signup">New here ? Sign up</string>
     <string name="text_button_password_recovery">Forgot password ?</string>
@@ -24,6 +25,9 @@
     <string name="text_login_fragment_passwordrecovery_button_recovery" >Reset Password</string>
     <string name="text_login_fragment_passwordrecovery_text_arrow_right">You have found your password ?</string>
 
+    <string name="recettes_search_bar">Rechercher une recette</string>
+    <string name="recettes_hint_text">Recherchez votre recette ici</string>
+
     <string name="title_activity_my_menu">MyMenuActivity</string>
     <string name="title_section1">Section 1</string>
     <string name="title_section2">Section 2</string>
@@ -38,6 +42,6 @@
 <!-- TODO: Remove this text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_splash">SplashActivity</string>
-    <string name="eurotmp">33,99 €</string>
+    <string name="euro">€</string>
 
 </resources>

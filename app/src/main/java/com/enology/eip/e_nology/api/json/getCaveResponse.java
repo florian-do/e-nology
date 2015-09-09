@@ -28,7 +28,7 @@ public class getCaveResponse implements Serializable {
     @Expose
     private double  grade;
     @Expose
-    private double  price;
+    private String  price;
     @Expose
     private String  grapetype;
     @Expose
@@ -73,7 +73,7 @@ public class getCaveResponse implements Serializable {
         return grade;
     }
 
-    public double getPrice() {
+    public String getPrice() {
         return price;
     }
 
@@ -133,7 +133,7 @@ public class getCaveResponse implements Serializable {
         this.grade = grade;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(String price) {
         this.price = price;
     }
 

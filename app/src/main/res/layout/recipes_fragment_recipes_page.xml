@@ -1,0 +1,71 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.enology.eip.e_nology.recipes.fragment.RecipesPageFragment">
+
+    <RelativeLayout
+        android:id="@+id/recipes_page_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/recipes_page_image"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:src="@drawable/recipes_page_image"
+            android:layout_margin="10dp"
+            android:layout_centerHorizontal="true"/>
+
+        <com.enology.fonts.FontTextView
+            android:id="@+id/recipes_page_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/recipes_page_image"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/black"
+            android:layout_marginTop="5dp"
+            android:text="@string/action_example"/>
+
+        <com.enology.fonts.FontTextView
+            android:id="@+id/recipes_page_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/recipes_page_name"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            android:layout_marginTop="5dp"
+            android:text="@string/action_example"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/recipes_page_header">
+
+        <ImageView
+            android:id="@+id/recipes_page_vin_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/wine_1"
+            android:layout_margin="10dp"/>
+
+        <ImageView
+            android:id="@+id/recipes_page_vin_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/wine_6"
+            android:layout_margin="10dp"
+            android:layout_toRightOf="@+id/recipes_page_vin_1" />
+
+        <ImageView
+            android:id="@+id/recipes_page_vin_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/wine_5"
+            android:layout_margin="10dp"
+            android:layout_centerHorizontal="true"
+            android:layout_toRightOf="@+id/recipes_page_vin_2"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>

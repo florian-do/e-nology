@@ -1,0 +1,55 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.enology.eip.e_nology.recipes.fragment.RecipesFragment">
+
+    <LinearLayout
+        android:id="@+id/recipes_top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/background_color">
+
+        <com.enology.fonts.FontEditText
+            android:id="@+id/recipes_search"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:background="@drawable/search_bar"
+            android:hint="@string/recettes_search_bar"
+            android:textColor="#797b81"
+            android:inputType="textAutoComplete"
+            android:editable="true"
+            android:singleLine="true"
+            android:layout_margin="10dp"
+            android:layout_centerHorizontal="true"
+            android:paddingLeft="46dp" />
+
+    </LinearLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_below="@+id/recipes_top">
+
+        <ImageView
+            android:id="@+id/recipes_arrow_r"
+            android:layout_width="match_parent"
+            android:layout_height="220dp"
+            android:src="@drawable/recipes_arrow_r"/>
+
+        <com.enology.fonts.FontTextView
+            android:id="@+id/recipes_hint_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/background_color"
+            android:text="@string/recettes_hint_text"
+            android:layout_below="@+id/recipes_arrow_r"
+            android:layout_centerHorizontal="true"/>
+
+        <ListView
+            android:id="@+id/recettes_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    </RelativeLayout>
+</RelativeLayout>

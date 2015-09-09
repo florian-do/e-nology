@@ -4,12 +4,14 @@ import com.enology.eip.e_nology.api.json.CreateUserResponse;
 import com.enology.eip.e_nology.api.json.LoginResponse;
 import com.enology.eip.e_nology.api.json.getBottlesResponse;
 import com.enology.eip.e_nology.api.json.getCaveResponse;
+import com.enology.eip.e_nology.api.json.getResearchResponse;
 
 import java.util.List;
 
 import retrofit.Callback;
 import retrofit.http.Body;
 import retrofit.http.GET;
+import retrofit.http.PATCH;
 import retrofit.http.POST;
 import retrofit.http.Path;
 
@@ -29,4 +31,7 @@ public interface EnologyService
 
     @GET("/caves/{id}/myBottles")
     void getCave(@Path("id") String id, Callback<List<getCaveResponse>> callback);
+
+    @GET("/recipes/search/{research}")
+    void getResearch(@Path("research") String research, Callback<List<getResearchResponse>> callback);
 }

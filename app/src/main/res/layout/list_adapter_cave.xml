@@ -46,31 +46,31 @@
             android:orientation="horizontal">
 
             <ImageView
-                android:id="@+id/cave_mark_1"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:src="@drawable/recipes_mark_on"/>
-
-            <ImageView
-                android:id="@+id/cave_mark_2"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:src="@drawable/recipes_mark_on"/>
-
-            <ImageView
-                android:id="@+id/cave_mark_3"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:src="@drawable/recipes_mark_on"/>
-
-            <ImageView
-                android:id="@+id/cave_mark_4"
+                android:id="@+id/cave_adapter_mark_1"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 android:src="@drawable/recipes_mark_off"/>
 
             <ImageView
-                android:id="@+id/cave_mark_5"
+                android:id="@+id/cave_adapter_mark_2"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:src="@drawable/recipes_mark_off"/>
+
+            <ImageView
+                android:id="@+id/cave_adapter_mark_3"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:src="@drawable/recipes_mark_off"/>
+
+            <ImageView
+                android:id="@+id/cave_adapter_mark_4"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:src="@drawable/recipes_mark_off"/>
+
+            <ImageView
+                android:id="@+id/cave_adapter_mark_5"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 android:src="@drawable/recipes_mark_off"/>

@@ -13,6 +13,7 @@ import com.enology.eip.e_nology.R;
 import com.enology.eip.e_nology.api.json.getBottlesResponse;
 import com.enology.eip.e_nology.api.json.getCaveResponse;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -34,6 +35,7 @@ public class CaveListAdapter extends ArrayAdapter<getCaveResponse>
         TextView    domain;
         TextView    year;
         ImageView   img;
+        List<ImageView>     mark = new ArrayList<ImageView>();
     }
 
     public CaveListAdapter(Context context, int resource, List<getCaveResponse> objects)
@@ -59,6 +61,11 @@ public class CaveListAdapter extends ArrayAdapter<getCaveResponse>
             holder.domain = (TextView) convertView.findViewById(R.id.cave_list_domain);
             holder.img = (ImageView) convertView.findViewById(R.id.cave_list_image);
             holder.year = (TextView) convertView.findViewById(R.id.cave_list_year);
+            holder.mark.add((ImageView) convertView.findViewById(R.id.cave_adapter_mark_1));
+            holder.mark.add((ImageView) convertView.findViewById(R.id.cave_adapter_mark_2));
+            holder.mark.add((ImageView) convertView.findViewById(R.id.cave_adapter_mark_3));
+            holder.mark.add((ImageView) convertView.findViewById(R.id.cave_adapter_mark_4));
+            holder.mark.add((ImageView) convertView.findViewById(R.id.cave_adapter_mark_5));
             convertView.setTag(holder);
         }
         else
@@ -69,6 +76,12 @@ public class CaveListAdapter extends ArrayAdapter<getCaveResponse>
         holder.name.setText(objects.get(position).getName());
         holder.domain.setText(objects.get(position).getCru());
         holder.year.setText(objects.get(position).getYear());
+
+        for (int i = 0; i < objects.get(position).getGrade(); i++)
+        {
+            holder.mark.get(i).setImageResource(R.drawable.recipes_mark_on);
+        }
+
         return convertView;
     }
 

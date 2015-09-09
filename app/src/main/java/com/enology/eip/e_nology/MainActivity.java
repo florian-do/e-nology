@@ -19,17 +19,21 @@ import android.view.Window;
 
 import com.enology.eip.e_nology.api.json.getBottlesResponse;
 import com.enology.eip.e_nology.api.json.getCaveResponse;
+import com.enology.eip.e_nology.api.json.getResearchResponse;
 import com.enology.eip.e_nology.cave.fragment.CaveFragment;
 import com.enology.eip.e_nology.cave.fragment.CavePageFragment;
 import com.enology.eip.e_nology.cave.scanner.ScannerFragment;
 import com.enology.eip.e_nology.menu.NavigationDrawerFragment;
 import com.enology.eip.e_nology.catalog.fragment.CatalogPageFragment;
 import com.enology.eip.e_nology.catalog.fragment.CatalogFragment;
+import com.enology.eip.e_nology.recipes.fragment.RecipesFragment;
+import com.enology.eip.e_nology.recipes.fragment.RecipesPageFragment;
 
 public class MainActivity extends Activity implements NavigationDrawerFragment.NavigationDrawerCallbacks,
         CatalogFragment.OnFragmentInteractionListener,
         CaveFragment.OnFragmentInteractionListener,
-        ScannerFragment.OnFragmentInteractionListener {
+        ScannerFragment.OnFragmentInteractionListener,
+        RecipesFragment.OnFragmentInteractionListener {
 
     /**
      * Fragment managing the behaviors, interactions and presentation of the navigation drawer.
@@ -88,7 +92,7 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
             break;
             case 2:
                 fragmentManager.beginTransaction()
-                        .replace(R.id.container, PlaceholderFragment.newInstance(position + 1))
+                        .replace(R.id.container, RecipesFragment.newInstance())
                         .commit();
                 break;
             case 3:
@@ -192,9 +196,7 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_main, container, false);
-
-            return rootView;
+            return inflater.inflate(R.layout.fragment_main, container, false);
         }
 
         @Override
@@ -203,6 +205,15 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
             ((MainActivity) activity).onSectionAttached(
                     getArguments().getInt(ARG_SECTION_NUMBER));
         }
+    }
+
+    public void onRecipesSelected(getResearchResponse research)
+    {
+        FragmentManager fragmentManager = getFragmentManager();
+        fragmentManager.beginTransaction()
+                .replace(R.id.container, RecipesPageFragment.newInstance(research))
+                .addToBackStack(null)
+                .commit();
     }
 
     public void onBottleSelected(getBottlesResponse bottles)
