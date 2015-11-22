@@ -38,7 +38,8 @@ import retrofit.client.Response;
 public class CatalogFragment extends Fragment
 {
     private View rootView;
-
+    private static final String ARG_TOKEN = "token";
+    
     private List<getBottlesResponse> bottles;
 
     private CatalogListAdapter rAdapter;
@@ -50,9 +51,14 @@ public class CatalogFragment extends Fragment
     public static final String DEBUG_TAG = "CatalogFragment";
 
     private OnFragmentInteractionListener mListener;
+    private String token;
 
-    public static CatalogFragment newInstance() {
-        return new CatalogFragment();
+    public static CatalogFragment newInstance(String token) {
+        CatalogFragment fragment = new CatalogFragment();
+        Bundle args = new Bundle();
+        args.putString(ARG_TOKEN, token);
+        fragment.setArguments(args);
+        return fragment;
     }
 
     public CatalogFragment() {
@@ -62,6 +68,9 @@ public class CatalogFragment extends Fragment
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (getArguments() != null) {
+            token = getArguments().getString(ARG_TOKEN);
+        }
     }
 
     @Override
@@ -82,7 +91,7 @@ public class CatalogFragment extends Fragment
         //recipes_ic_sync.setVisibility(View.INVISIBLE);
         //gridView.setVisibility(View.INVISIBLE);
 
-        RestClient.get().getBottles(new Callback<List<getBottlesResponse>>() {
+        RestClient.getToken(token).getBottles(new Callback<List<getBottlesResponse>>() {
             @Override
             public void success(List<getBottlesResponse> bottlesResponse, Response response)
             {
@@ -123,7 +132,7 @@ public class CatalogFragment extends Fragment
         mPtrFrame.setPtrHandler(new PtrHandler() {
             @Override
             public void onRefreshBegin(PtrFrameLayout frame) {
-                RestClient.get().getBottles(new Callback<List<getBottlesResponse>>() {
+                RestClient.getToken(token).getBottles(new Callback<List<getBottlesResponse>>() {
                     @Override
                     public void success(List<getBottlesResponse> bottlesResponse, Response response) {
                         Log.d(DEBUG_TAG, "SUCCESS : RESPOSNE : " + response.getStatus());

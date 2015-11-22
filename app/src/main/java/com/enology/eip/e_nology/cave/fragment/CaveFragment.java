@@ -20,6 +20,7 @@ import com.enology.eip.e_nology.R;
 import com.enology.eip.e_nology.api.RestClient;
 import com.enology.eip.e_nology.api.json.getCaveResponse;
 import com.enology.eip.e_nology.cave.adapter.CaveListAdapter;
+import com.enology.eip.e_nology.cave.nfc.NfcFragment;
 import com.enology.eip.e_nology.cave.scanner.ScannerFragment;
 
 import java.util.List;
@@ -42,6 +43,8 @@ import retrofit.client.Response;
  */
 public class CaveFragment extends Fragment {
 
+    private static final String ARG_TOKEN = "token";
+
     private List<getCaveResponse> cave;
 
     private OnFragmentInteractionListener   mListener;
@@ -50,11 +53,16 @@ public class CaveFragment extends Fragment {
     private ImageView                       recipes_ic_sync;
     private TextView                        recipes_ic_text;
     private PtrClassicFrameLayout           mPtrFrame;
+    private String                          token;
 
     public static final String DEBUG_TAG = "CaveFragment";
 
-    public static CaveFragment newInstance() {
-        return new CaveFragment();
+    public static CaveFragment newInstance(String token) {
+        CaveFragment fragment = new CaveFragment();
+        Bundle args = new Bundle();
+        args.putString(ARG_TOKEN, token);
+        fragment.setArguments(args);
+        return fragment;
     }
 
     public CaveFragment() {
@@ -64,6 +72,9 @@ public class CaveFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (getArguments() != null) {
+            token = getArguments().getString(ARG_TOKEN);
+        }
         setHasOptionsMenu(true);
     }
 
@@ -85,8 +96,7 @@ public class CaveFragment extends Fragment {
 
         //recipes_ic_sync.setVisibility(View.INVISIBLE);
         //gridView.setVisibility(View.INVISIBLE);
-
-        RestClient.get().getCave("55eaf0eab79fae0b00eee97f", new Callback<List<getCaveResponse>>() {
+        RestClient.getToken(token).getCave("55eaf0eab79fae0b00eee97f", new Callback<List<getCaveResponse>>() {
             @Override
             public void success(List<getCaveResponse> caveResponse, Response response)
             {
@@ -127,7 +137,7 @@ public class CaveFragment extends Fragment {
         mPtrFrame.setPtrHandler(new PtrHandler() {
             @Override
             public void onRefreshBegin(PtrFrameLayout frame) {
-                RestClient.get().getCave("55eaf0eab79fae0b00eee97f", new Callback<List<getCaveResponse>>() {
+                RestClient.getToken(token).getCave("562781e22b86df0b0020eaf0", new Callback<List<getCaveResponse>>() {
                     @Override
                     public void success(List<getCaveResponse> caveResponse, Response response)
                     {
@@ -142,6 +152,7 @@ public class CaveFragment extends Fragment {
                         recipes_ic_sync.setVisibility(View.VISIBLE);
                         recipes_ic_text.setVisibility(View.VISIBLE);
                         Log.d(DEBUG_TAG, "FAIL : " + error.getMessage());
+                        mPtrFrame.refreshComplete();
                     }
                 });
             }
@@ -176,6 +187,12 @@ public class CaveFragment extends Fragment {
             case R.id.menu_add_scanner:
                 fragmentManager.beginTransaction()
                         .replace(R.id.container, ScannerFragment.newInstance())
+                        .addToBackStack(null)
+                        .commit();
+                return true;
+            case R.id.menu_add_nfc:
+                fragmentManager.beginTransaction()
+                        .replace(R.id.container, NfcFragment.newInstance("", ""))
                         .addToBackStack(null)
                         .commit();
                 return true;

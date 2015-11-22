@@ -37,6 +37,7 @@ import retrofit.mime.TypedByteArray;
 public class SigninFragment extends Fragment {
 
     private static String DEBUG_TAG = "Signin_Fragment";
+    private static final String ARG_TOKEN = "token";
 
     private EditText    username;
     private EditText    password;
@@ -86,10 +87,11 @@ public class SigninFragment extends Fragment {
                             logo.setVisibility(View.VISIBLE);
                             loading.setVisibility(View.INVISIBLE);
 
-                            Log.d(DEBUG_TAG, "SUCCESS : " + loginResponse.getUsername() + " RESPOSNE : " + response.getStatus());
+                            Log.d(DEBUG_TAG, "SUCCESS : " + loginResponse.getToken() + " RESPOSNE : " + response.getStatus());
 
                             signin.setClickable(true);
                             Intent intent = new Intent(getActivity(), SplashActivity.class);
+                            intent.putExtra(ARG_TOKEN, loginResponse.getToken());
                             startActivity(intent);
                         }
 

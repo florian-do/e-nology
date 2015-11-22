@@ -1,0 +1,234 @@
+Index: app/src/main/res/layout/catalog_fragment_catalog_page.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/catalog_fragment_catalog_page.xml	(revision 4e7cabb0ce41b00274ea300ffe99ee022a7d06d4)
++++ app/src/main/res/layout/catalog_fragment_catalog_page.xml	(revision )
+@@ -95,16 +95,39 @@
+         android:layout_height="match_parent"
+         tools:context="com.enology.eip.e_nology.catalog.fragment.CatalogPageFragment">
+ 
++        <ScrollView
++            android:id="@+id/catalog_scroll"
++            android:layout_width="match_parent"
++            android:layout_height="150dp">
++
+-        <com.enology.fonts.FontTextView
+-            android:id="@+id/recipe_page_desc"
+-            android:layout_width="wrap_content"
+-            android:layout_height="wrap_content"
+-            android:text="@string/app_name"
+-            android:textColor="@color/black"
+-            android:textSize="15dp"
+-            android:layout_marginTop="10dp"
+-            android:layout_marginLeft="15dp"
+-            android:layout_marginRight="15dp"/>
++            <com.enology.fonts.FontTextView
++                android:id="@+id/recipe_page_desc"
++                android:layout_width="wrap_content"
++                android:layout_height="wrap_content"
++                android:text="@string/app_name"
++                android:textColor="@color/black"
++                android:textSize="15dp"
++                android:layout_marginTop="10dp"
++                android:layout_marginLeft="15dp"
++                android:layout_marginRight="15dp"/>
++
++        </ScrollView>
++
++        <Button
++            android:layout_width="wrap_content"
++            android:layout_height="wrap_content"
++            android:layout_below="@+id/catalog_scroll"
++            android:layout_alignParentBottom="true"
++            android:layout_alignParentLeft="true"
++            android:text="@string/cave_page_redeem"/>
++
++        <Button
++            android:layout_width="wrap_content"
++            android:layout_height="wrap_content"
++            android:layout_below="@+id/catalog_scroll"
++            android:layout_alignParentBottom="true"
++            android:layout_alignParentRight="true"
++            android:text="@string/cave_page_remove"/>
+ 
+     </RelativeLayout>
+ 
+Index: app/src/main/java/com/enology/eip/e_nology/cave/adapter/CaveListAdapter.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- app/src/main/java/com/enology/eip/e_nology/cave/adapter/CaveListAdapter.java	(revision 4e7cabb0ce41b00274ea300ffe99ee022a7d06d4)
++++ app/src/main/java/com/enology/eip/e_nology/cave/adapter/CaveListAdapter.java	(revision )
+@@ -34,6 +34,7 @@
+         TextView    name;
+         TextView    domain;
+         TextView    year;
++        TextView    price;
+         ImageView   img;
+         List<ImageView>     mark = new ArrayList<ImageView>();
+     }
+@@ -61,6 +62,7 @@
+             holder.domain = (TextView) convertView.findViewById(R.id.cave_list_domain);
+             holder.img = (ImageView) convertView.findViewById(R.id.cave_list_image);
+             holder.year = (TextView) convertView.findViewById(R.id.cave_list_year);
++            holder.price = (TextView) convertView.findViewById(R.id.cave_adapter_price);
+             holder.mark.add((ImageView) convertView.findViewById(R.id.cave_adapter_mark_1));
+             holder.mark.add((ImageView) convertView.findViewById(R.id.cave_adapter_mark_2));
+             holder.mark.add((ImageView) convertView.findViewById(R.id.cave_adapter_mark_3));
+@@ -76,6 +78,7 @@
+         holder.name.setText(objects.get(position).getName());
+         holder.domain.setText(objects.get(position).getCru());
+         holder.year.setText(objects.get(position).getYear());
++        holder.price.setText(objects.get(position).getPrice()+" "+context.getString(R.string.euro));
+ 
+         for (int i = 0; i < objects.get(position).getGrade(); i++)
+         {
+Index: app/src/main/res/values/strings.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/values/strings.xml	(revision 4e7cabb0ce41b00274ea300ffe99ee022a7d06d4)
++++ app/src/main/res/values/strings.xml	(revision )
+@@ -38,6 +38,10 @@
+     <string name="title_activity_my_drawer">MyDrawerActivity</string>
+     <string name="menu_notifications_number">5</string>
+     <string name="title_activity_main">MainActivity</string>
++    <string name="cave_page_redeem">Redeem</string>
++    <string name="cave_page_remove">Remove</string>
++    <string name="catalog_page_drink">Drink IT</string>
++    <string name="catalog_page_buy">Remove</string>
+ 
+ <!-- TODO: Remove this text -->
+     <string name="hello_blank_fragment">Hello blank fragment</string>
+Index: app/src/main/res/layout/cave_fragment_cave_page.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/cave_fragment_cave_page.xml	(revision 4e7cabb0ce41b00274ea300ffe99ee022a7d06d4)
++++ app/src/main/res/layout/cave_fragment_cave_page.xml	(revision )
+@@ -108,16 +108,32 @@
+         android:layout_height="match_parent"
+         tools:context="com.enology.eip.e_nology.cave.fragment.CavePageFragment">
+ 
++        <ScrollView
++            android:id="@+id/cave_scroll"
++            android:layout_width="match_parent"
++            android:layout_height="150dp">
++
+-        <com.enology.fonts.FontTextView
+-            android:id="@+id/cave_page_desc"
+-            android:layout_width="wrap_content"
+-            android:layout_height="wrap_content"
+-            android:text="@string/app_name"
+-            android:textColor="@color/black"
+-            android:textSize="15dp"
+-            android:layout_marginTop="10dp"
+-            android:layout_marginLeft="15dp"
+-            android:layout_marginRight="15dp"/>
++            <com.enology.fonts.FontTextView
++                android:id="@+id/cave_page_desc"
++                android:layout_width="wrap_content"
++                android:layout_height="wrap_content"
++                android:text="@string/app_name"
++                android:textColor="@color/black"
++                android:textSize="15dp"
++                android:layout_marginTop="10dp"
++                android:layout_marginLeft="15dp"
++                android:layout_marginRight="15dp"/>
++
++        </ScrollView>
++
++
++        <Button
++            android:layout_width="wrap_content"
++            android:layout_height="wrap_content"
++            android:layout_below="@+id/catalog_scroll"
++            android:layout_alignParentBottom="true"
++            android:layout_alignParentLeft="true"
++            android:text="@string/catalog_page_drink"/>
+ 
+     </RelativeLayout>
+ 
+Index: app/src/main/java/com/enology/eip/e_nology/orm/model/Domain.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- app/src/main/java/com/enology/eip/e_nology/orm/model/Domain.java	(revision )
++++ app/src/main/java/com/enology/eip/e_nology/orm/model/Domain.java	(revision )
+@@ -0,0 +1,49 @@
++package com.enology.eip.e_nology.orm.model;
++
++import com.activeandroid.Model;
++import com.activeandroid.annotation.Column;
++import com.activeandroid.annotation.Table;
++
++/**
++ * Created by Lolo on 26/05/2015.
++ */
++
++@Table(name = "Domain")
++public class Domain extends Model {
++
++    public Domain()
++    {
++        super();
++    }
++
++    @Column(name = "Id")
++    public  String  _id;
++
++    @Column(name = "User")
++    public  String  User;
++
++    @Column(name = "Appellation")
++    public  String  Appellation;
++
++    @Column(name = "Created")
++    public  String  Created;
++
++    @Column(name = "Zipcode")
++    public  int     Zipcode;
++
++    @Column(name = "City")
++    public  String  City;
++
++    @Column(name = "Address")
++    public  String  Address;
++
++    @Column(name = "Owner")
++    public  String  Owner;
++
++    @Column(name = "Desc")
++    public  String  Desc;
++
++    @Column(name = "Name")
++    public  String  Name;
++
++}
+Index: app/src/main/res/layout/list_adapter_cave.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/list_adapter_cave.xml	(revision 4e7cabb0ce41b00274ea300ffe99ee022a7d06d4)
++++ app/src/main/res/layout/list_adapter_cave.xml	(revision )
+@@ -77,6 +77,13 @@
+ 
+         </LinearLayout>
+ 
++        <com.enology.fonts.FontTextView
++            android:id="@+id/cave_adapter_price"
++            android:layout_width="wrap_content"
++            android:layout_height="wrap_content"
++            android:textColor="@color/recipes_red_price"
++            android:text="@string/euro"/>
++
+     </LinearLayout>
+ 
+ </LinearLayout>

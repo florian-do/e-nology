@@ -5,6 +5,7 @@
     <string name="hello_world">Hello world!</string>
     <string name="welcome">Welcome to E-nology</string>
     <string name="action_settings_add_scanner">Add from scanner</string>
+    <string name="action_settings_add_nfc">Add from NFC</string>
     <string name="action_settings_add">Add a bottle</string>
     <string name="action_search">Search</string>
     <string name="text_button_signin">Sign in</string>

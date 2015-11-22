@@ -1,11 +1,10 @@
 package com.enology.eip.e_nology.api.json;
 
-import com.enology.eip.e_nology.api.json.object.Domain;
+import com.enology.eip.e_nology.api.json.object.getBottles.Domain;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
-import java.util.List;
 
 /**
  * Created by Lolo on 17/04/2015.

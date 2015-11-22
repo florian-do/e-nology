@@ -66,7 +66,8 @@ public class CatalogListAdapter extends ArrayAdapter<getBottlesResponse>
         Drawable tmp = this.context.getResources().getDrawable(getRandom());
         holder.img.setImageDrawable(tmp);
         holder.name.setText(objects.get(position).getName());
-        holder.domain.setText(objects.get(position).getDomain().getCity());
+        if (objects.get(position).getDomain() != null)
+            holder.domain.setText(objects.get(position).getDomain().getCity());
         holder.year.setText(objects.get(position).getYear());
         return convertView;
     }

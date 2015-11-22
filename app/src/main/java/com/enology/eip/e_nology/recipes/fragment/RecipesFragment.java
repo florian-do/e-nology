@@ -37,6 +37,7 @@ import retrofit.client.Response;
 
 public class RecipesFragment extends Fragment {
 
+    private static final String ARG_TOKEN = "token";
     public static final String DEBUG_TAG = "RecipesFragment";
 
     private OnFragmentInteractionListener   mListener;
@@ -48,9 +49,14 @@ public class RecipesFragment extends Fragment {
     private ListView                        recipesList;
     private ImageView                       arrowImage;
     private TextView                        arrowText;
+    private String                          token;
 
-    public static RecipesFragment newInstance() {
-        return new RecipesFragment();
+    public static RecipesFragment newInstance(String token) {
+        RecipesFragment fragment = new RecipesFragment();
+        Bundle args = new Bundle();
+        args.putString(ARG_TOKEN, token);
+        fragment.setArguments(args);
+        return fragment;
     }
 
     public RecipesFragment() {
@@ -60,6 +66,8 @@ public class RecipesFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (getArguments() != null)
+            token = getArguments().getString(ARG_TOKEN);
     }
 
     @Override
@@ -103,7 +111,7 @@ public class RecipesFragment extends Fragment {
             public boolean onKey(View v, int keyCode, KeyEvent event) {
                 if ((event.getAction() == KeyEvent.ACTION_DOWN) && (keyCode == KeyEvent.KEYCODE_ENTER))
                 {
-                    RestClient.get().getResearch(recipesSearch.getText().toString(), new Callback<List<getResearchResponse>>() {
+                    RestClient.getToken(token).getResearch(recipesSearch.getText().toString(), new Callback<List<getResearchResponse>>() {
                         @Override
                         public void success(List<getResearchResponse> getResearchResponses, Response response) {
                             research = getResearchResponses;

@@ -11,4 +11,9 @@
         android:title="@string/action_settings_add_scanner"
         android:showAsAction="never" />
 
+    <item
+        android:id="@+id/menu_add_nfc"
+        android:title="@string/action_settings_add_nfc"
+        android:showAsAction="never" />
+
 </menu>
