@@ -18,7 +18,7 @@ system will be hosted on a Windows 8 computer fully integrated into the wine cel
 * Zbar (Barcode Scanner)
 * Fresco (0.9) Facebook Image Library
 
-### How do I get set up? ###
+### Specs ###
 
 * Android Studio 1.5
 * MinSdk 14
