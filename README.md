@@ -1,6 +1,14 @@
-# README #
+# README - E-nology #
 
-This README would normally document whatever steps are necessary to get your application up and running.
+This is my first android project for my final project graduation at Epitech (EIP - Epitech Innovative Project)
+
+### The project ###
+
+![alt tag](http://eip.epitech.eu/2016/enology/images/ic_launcher.png)
+
+E-nology is a connected wine cellar which aim is to simplify user experience. User-friendly and
+intuitive, it will consist of an HD screen and a touch screen that will act as a door. Meanwhile the
+system will be hosted on a Windows 8 computer fully integrated into the wine cellar door.
 
 ### What is this repository for? ###
 
