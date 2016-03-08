@@ -5,136 +5,140 @@
     android:orientation="vertical"
     android:background="@color/white">
 
-    <RelativeLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:context="com.enology.eip.e_nology.cave.fragment.CavePageFragment">
-
-        <ImageView
-            android:id="@+id/cave_page_image"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/recipes_bottle_preview"
-            android:layout_marginTop="5dp"
-            android:layout_centerHorizontal="true" />
-
-        <com.enology.fonts.FontTextView
-            android:id="@+id/cave_page_text"
-            android:layout_width="160dp"
-            android:layout_height="wrap_content"
-            android:text="@string/app_name"
-            android:textSize="18dp"
-            android:layout_below="@+id/cave_page_image"
-            android:textColor="@color/black"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="20dp" />
-
-        <com.enology.fonts.FontTextView
-            android:id="@+id/cave_page_city"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/app_name"
-            android:textSize="15dp"
-            android:layout_below="@+id/cave_page_text"
-            android:textColor="@color/black"
-            android:layout_marginTop="5dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginBottom="10dp"/>
+        android:layout_height="match_parent">
 
         <LinearLayout
-            android:id="@+id/cave_page_mark"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="20dp"
-            android:layout_below="@+id/cave_page_image"
-            android:layout_alignParentRight="true"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:id="@+id/cave_page_mark_1"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:src="@drawable/recipes_mark_off"/>
-
-            <ImageView
-                android:id="@+id/cave_page_mark_2"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:src="@drawable/recipes_mark_off"/>
-
-            <ImageView
-                android:id="@+id/cave_page_mark_3"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:src="@drawable/recipes_mark_off"/>
-
-            <ImageView
-                android:id="@+id/cave_page_mark_4"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:src="@drawable/recipes_mark_off"/>
-
-            <ImageView
-                android:id="@+id/cave_page_mark_5"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:src="@drawable/recipes_mark_off"/>
-
-        </LinearLayout>
-
-
-        <com.enology.fonts.FontTextView
-            android:id="@+id/cave_page_price"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/euro"
-            android:textSize="15dp"
-            android:layout_below="@+id/cave_page_mark"
-            android:layout_alignParentRight="true"
-            android:textColor="@color/recipes_red_price"
-            android:layout_marginTop="5dp"
-            android:layout_marginRight="20dp"/>
-
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="10dp"
-        android:background="@color/recipes_serparator"></RelativeLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context="com.enology.eip.e_nology.cave.fragment.CavePageFragment">
-
-        <ScrollView
-            android:id="@+id/cave_scroll"
             android:layout_width="match_parent"
-            android:layout_height="150dp">
-
-            <com.enology.fonts.FontTextView
-                android:id="@+id/cave_page_desc"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/app_name"
-                android:textColor="@color/black"
-                android:textSize="15dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"/>
-
-        </ScrollView>
-
-
-        <Button
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/catalog_scroll"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentLeft="true"
-            android:text="@string/catalog_page_drink"/>
+            android:orientation="vertical">
 
-    </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:context="com.enology.eip.e_nology.cave.fragment.CavePageFragment">
 
+                <ImageView
+                    android:id="@+id/cave_page_image"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/recipes_bottle_preview"
+                    android:layout_marginTop="5dp"
+                    android:layout_centerHorizontal="true" />
+
+                <com.enology.fonts.FontTextView
+                    android:id="@+id/cave_page_text"
+                    android:layout_width="160dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/app_name"
+                    android:textSize="18dp"
+                    android:layout_below="@+id/cave_page_image"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="20dp" />
+
+                <com.enology.fonts.FontTextView
+                    android:id="@+id/cave_page_city"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/app_name"
+                    android:textSize="15dp"
+                    android:layout_below="@+id/cave_page_text"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginBottom="10dp"/>
+
+                <LinearLayout
+                    android:id="@+id/cave_page_mark"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_below="@+id/cave_page_image"
+                    android:layout_alignParentRight="true"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/cave_page_mark_1"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:src="@drawable/recipes_mark_off"/>
+
+                    <ImageView
+                        android:id="@+id/cave_page_mark_2"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:src="@drawable/recipes_mark_off"/>
+
+                    <ImageView
+                        android:id="@+id/cave_page_mark_3"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:src="@drawable/recipes_mark_off"/>
+
+                    <ImageView
+                        android:id="@+id/cave_page_mark_4"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:src="@drawable/recipes_mark_off"/>
+
+                    <ImageView
+                        android:id="@+id/cave_page_mark_5"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:src="@drawable/recipes_mark_off"/>
+
+                </LinearLayout>
+
+
+                <com.enology.fonts.FontTextView
+                    android:id="@+id/cave_page_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/euro"
+                    android:textSize="15dp"
+                    android:layout_below="@+id/cave_page_mark"
+                    android:layout_alignParentRight="true"
+                    android:textColor="@color/recipes_red_price"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="20dp"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:background="@color/recipes_serparator"></RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentBottom="true"
+                tools:context="com.enology.eip.e_nology.cave.fragment.CavePageFragment">
+
+                <com.enology.fonts.FontTextView
+                    android:id="@+id/cave_page_desc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/app_name"
+                    android:textColor="@color/black"
+                    android:textSize="15dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"/>
+
+                <Button
+                    android:id="@+id/cave_page_drink_button"
+                    android:layout_below="@id/cave_page_desc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentLeft="true"
+                    android:text="@string/catalog_page_drink"/>
+
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>

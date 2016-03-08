@@ -8,7 +8,6 @@ import android.app.FragmentManager;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
-import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -22,30 +21,35 @@ import android.view.Window;
 import com.enology.eip.e_nology.api.json.getBottleByIdResponse;
 import com.enology.eip.e_nology.api.json.getBottlesResponse;
 import com.enology.eip.e_nology.api.json.getCaveResponse;
+import com.enology.eip.e_nology.api.json.getNewsResponse;
 import com.enology.eip.e_nology.api.json.getResearchResponse;
+import com.enology.eip.e_nology.catalog.page.CatalogPageActivity;
 import com.enology.eip.e_nology.cave.fragment.CaveFragment;
 import com.enology.eip.e_nology.cave.fragment.CavePageFragment;
-import com.enology.eip.e_nology.cave.nfc.NfcFragment;
 import com.enology.eip.e_nology.cave.scanner.ScannerFragment;
 import com.enology.eip.e_nology.menu.NavigationDrawerFragment;
 import com.enology.eip.e_nology.catalog.fragment.CatalogPageFragment;
 import com.enology.eip.e_nology.catalog.fragment.CatalogFragment;
+import com.enology.eip.e_nology.news.fragment.NewsFragment;
+import com.enology.eip.e_nology.news.fragment.NewsPageFragment;
 import com.enology.eip.e_nology.recipes.fragment.RecipesFragment;
 import com.enology.eip.e_nology.recipes.fragment.RecipesPageFragment;
+import com.enology.eip.e_nology.stats.StatsFragment;
 
 public class MainActivity extends Activity implements NavigationDrawerFragment.NavigationDrawerCallbacks,
         CatalogFragment.OnFragmentInteractionListener,
         CaveFragment.OnFragmentInteractionListener,
         ScannerFragment.OnFragmentInteractionListener,
-        NfcFragment.OnFragmentInteractionListener,
         RecipesFragment.OnFragmentInteractionListener,
-        RecipesPageFragment.OnFragmentInteractionListener{
+        RecipesPageFragment.OnFragmentInteractionListener,
+        NewsFragment.OnFragmentInteractionListener{
 
     /**
      * Fragment managing the behaviors, interactions and presentation of the navigation drawer.
      */
     private NavigationDrawerFragment mNavigationDrawerFragment;
     private static final String ARG_TOKEN = "token";
+    private static final String ARG_ID = "bottle_id";
 
     /**
      * Used to store the last screen title. For use in {@link #restoreActionBar()}.
@@ -112,12 +116,12 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
                 break;
             case 3:
                 fragmentManager.beginTransaction()
-                        .replace(R.id.container, PlaceholderFragment.newInstance(position + 1))
+                        .replace(R.id.container, NewsFragment.newInstance(token))
                         .commit();
                 break;
             case 4:
                 fragmentManager.beginTransaction()
-                        .replace(R.id.container, PlaceholderFragment.newInstance(position + 1))
+                        .replace(R.id.container, StatsFragment.newInstance(token))
                         .commit();
                 break;
         }
@@ -233,11 +237,16 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
 
     public void onBottleSelected(getBottlesResponse bottles)
     {
-        FragmentManager fragmentManager = getFragmentManager();
-        fragmentManager.beginTransaction()
-                .replace(R.id.container, CatalogPageFragment.newInstance(bottles))
-                .addToBackStack(null)
-                .commit();
+        Intent i = new Intent(MainActivity.this, CatalogPageActivity.class);
+        i.putExtra(ARG_TOKEN, token);
+        i.putExtra(ARG_ID, bottles.getId());
+        startActivity(i);
+
+//        FragmentManager fragmentManager = getFragmentManager();
+//        fragmentManager.beginTransaction()
+//                .replace(R.id.container, CatalogPageFragment.newInstance(bottles))
+//                .addToBackStack(null)
+//                .commit();
     }
 
 
@@ -245,7 +254,7 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
     public void onCaveSelected(getCaveResponse cave) {
         FragmentManager fragmentManager = getFragmentManager();
         fragmentManager.beginTransaction()
-                .replace(R.id.container, CavePageFragment.newInstance(cave))
+                .replace(R.id.container, CavePageFragment.newInstance(cave, token))
                 .addToBackStack(null)
                 .commit();
     }
@@ -271,8 +280,12 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
     }
 
     @Override
-    public void onFragmentInteraction(Uri uri)
+    public void onNewsSelected(getNewsResponse news)
     {
-
+        FragmentManager fragmentManager = getFragmentManager();
+        fragmentManager.beginTransaction()
+                .replace(R.id.container, NewsPageFragment.newInstance(news))
+                .addToBackStack(null)
+                .commit();
     }
 }

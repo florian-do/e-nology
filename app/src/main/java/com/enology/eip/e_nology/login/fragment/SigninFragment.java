@@ -56,8 +56,10 @@ public class SigninFragment extends Fragment {
         username = (EditText) rootView.findViewById(R.id.edittext_email_address);
         password = (EditText) rootView.findViewById(R.id.edittext_password);
 
+        /* TEMP */
         username.setText("chat");
         password.setText("pusheen016");
+        /* TEMP */
 
         loading = (ProgressBar) rootView.findViewById(R.id.google_progress);
         logo = (ImageView) rootView.findViewById(R.id.logo);

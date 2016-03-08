@@ -10,12 +10,14 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.enology.eip.e_nology.R;
 import com.enology.eip.e_nology.api.RestClient;
 import com.enology.eip.e_nology.api.json.getBottlesResponse;
 import com.enology.eip.e_nology.catalog.adapter.CatalogListAdapter;
+import com.jpardogo.android.googleprogressbar.library.NexusRotationCrossDrawable;
 
 import java.util.List;
 
@@ -52,6 +54,7 @@ public class CatalogFragment extends Fragment
 
     private OnFragmentInteractionListener mListener;
     private String token;
+    private ProgressBar loading;
 
     public static CatalogFragment newInstance(String token) {
         CatalogFragment fragment = new CatalogFragment();
@@ -80,6 +83,9 @@ public class CatalogFragment extends Fragment
         recipes_ic_sync = (ImageView) view.findViewById(R.id.recipes_ic_sync);
         recipes_ic_text= (TextView) view.findViewById(R.id.recipes_ic_text);
         mPtrFrame = (PtrClassicFrameLayout) view.findViewById(R.id.ptr_frame);
+
+        loading = (ProgressBar) view.findViewById(R.id.google_progress);
+        loading.setIndeterminateDrawable(new NexusRotationCrossDrawable.Builder(getActivity()).build());
         return view;
     }
 
@@ -88,6 +94,7 @@ public class CatalogFragment extends Fragment
 
         this.setupPtr();
 
+        loading.setVisibility(View.VISIBLE);
         //recipes_ic_sync.setVisibility(View.INVISIBLE);
         //gridView.setVisibility(View.INVISIBLE);
 
@@ -101,6 +108,7 @@ public class CatalogFragment extends Fragment
                     rAdapter = new CatalogListAdapter(getActivity(), R.layout.list_adapter_catalog, bottles);
                 }
                 listView.setAdapter(rAdapter);
+                loading.setVisibility(View.INVISIBLE);
             }
 
             @Override
@@ -138,7 +146,7 @@ public class CatalogFragment extends Fragment
                         Log.d(DEBUG_TAG, "SUCCESS : RESPOSNE : " + response.getStatus());
                         bottles = bottlesResponse;
                         mPtrFrame.refreshComplete();
-                        rAdapter.notifyDataSetChanged();
+                        rAdapter.refreshAdapter(bottlesResponse);
                     }
 
                     @Override

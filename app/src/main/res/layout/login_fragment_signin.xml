@@ -39,9 +39,11 @@
         android:textSize="15dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/separator_arrow_left"
-        android:layout_toLeftOf="@+id/separator"
-        android:layout_toStartOf="@+id/separator" />
+        android:layout_below="@+id/separator_arrow_right"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="15dp"
+        android:layout_marginStart="15dp" />
 
     <!--  Arrow Right -->
 
@@ -78,8 +80,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
-        android:layout_toRightOf="@+id/separator"
-        android:layout_toEndOf="@+id/separator" />
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/logo"
+        android:layout_toEndOf="@+id/logo" />
 
     <!--  Arrow Right END -->
 

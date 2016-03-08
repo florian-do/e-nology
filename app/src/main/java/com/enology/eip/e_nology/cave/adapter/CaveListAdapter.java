@@ -109,4 +109,10 @@ public class CaveListAdapter extends ArrayAdapter<getCaveResponse>
                 return R.drawable.wine_1;
         }
     }
+
+    public synchronized void refreshAdapter(List<getCaveResponse> items) {
+        objects.clear();
+        objects.addAll(items);
+        notifyDataSetChanged();
+    }
 }

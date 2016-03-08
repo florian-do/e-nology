@@ -21,6 +21,16 @@ public class getBottlesResponse implements Serializable {
     private String desc;
     @Expose
     private String name;
+    @Expose
+    private String price;
+
+    public String getPrice() {
+        return price;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
+    }
 
     public String getId() {
         return id;
@@ -61,4 +71,6 @@ public class getBottlesResponse implements Serializable {
     public void setName(String name) {
         this.name = name;
     }
+
+
 }

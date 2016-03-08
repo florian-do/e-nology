@@ -8,6 +8,12 @@ import android.util.Log;
 
 import com.activeandroid.ActiveAndroid;
 import com.enology.eip.e_nology.orm.model.Domain;
+import com.facebook.drawee.backends.pipeline.Fresco;
+
+
+/*
+    NYI
+ */
 
 public class SplashActivity extends Activity {
 
@@ -17,9 +23,10 @@ public class SplashActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Fresco.initialize(getApplicationContext());
         setContentView(R.layout.activity_splash);
 
-
+        // ORM NYI
         //ActiveAndroid.initialize(this);
 
         new PrefetchData().execute();
@@ -30,8 +37,6 @@ public class SplashActivity extends Activity {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            // before making http calls
-
         }
 
         @Override
@@ -58,9 +63,7 @@ public class SplashActivity extends Activity {
             i.putExtra(ARG_TOKEN, token);
             startActivity(i);
 
-            // close this activity
             finish();
         }
-
     }
 }

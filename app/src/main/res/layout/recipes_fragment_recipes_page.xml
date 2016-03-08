@@ -8,11 +8,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
-        <ImageView
+        <com.facebook.drawee.view.SimpleDraweeView
             android:id="@+id/recipes_page_image"
-            android:layout_width="match_parent"
+            android:layout_width="350dp"
             android:layout_height="200dp"
-            android:src="@drawable/recipes_page_image"
             android:layout_margin="10dp"
             android:layout_centerHorizontal="true"/>
 

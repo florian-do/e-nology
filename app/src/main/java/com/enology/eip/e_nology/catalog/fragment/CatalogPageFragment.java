@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.enology.eip.e_nology.R;
+import com.enology.eip.e_nology.api.RestClient;
 import com.enology.eip.e_nology.api.json.getBottleByIdResponse;
 import com.enology.eip.e_nology.api.json.getBottlesResponse;
 
@@ -60,6 +61,7 @@ public class CatalogPageFragment extends Fragment {
     public void onActivityCreated(final Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
+        //RestClient.getToken()
         TextView name = (TextView) getView().findViewById(R.id.recipe_page_text);
         TextView desc = (TextView) getView().findViewById(R.id.recipe_page_desc);
         TextView city = (TextView) getView().findViewById(R.id.recipe_page_city);

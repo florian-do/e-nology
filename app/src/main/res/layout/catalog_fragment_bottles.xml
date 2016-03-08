@@ -25,6 +25,15 @@
 
     </in.srain.cube.views.ptr.PtrClassicFrameLayout>
 
+    <com.jpardogo.android.googleprogressbar.library.GoogleProgressBar
+        android:id="@+id/google_progress"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_gravity="center"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:visibility="invisible"/>
+
     <ImageView
         android:id="@+id/recipes_ic_sync"
         android:layout_width="wrap_content"

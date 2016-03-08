@@ -19,6 +19,7 @@ import com.enology.eip.e_nology.api.json.getBottleByIdResponse;
 import com.enology.eip.e_nology.api.json.getResearchResponse;
 import com.enology.eip.e_nology.api.json.object.Sommelier.SommelierBody;
 import com.enology.eip.e_nology.api.json.object.Sommelier.SommelierBodyParam;
+import com.facebook.drawee.view.SimpleDraweeView;
 
 import org.w3c.dom.Text;
 
@@ -91,7 +92,12 @@ public class RecipesPageFragment extends Fragment {
 
         TextView name = (TextView) getView().findViewById(R.id.recipes_page_name);
         TextView desc = (TextView) getView().findViewById(R.id.recipes_page_desc);
+        SimpleDraweeView img = (SimpleDraweeView) getView().findViewById(R.id.recipes_page_image);
 
+
+        Uri uri = Uri.parse(recipe.getImgurl());
+        //Uri uri = Uri.parse("https://raw.githubusercontent.com/facebook/fresco/gh-pages/static/fresco-logo.png");
+        img.setImageURI(uri);
         name.setText(recipe.getName());
         desc.setText(recipe.getDesc());
         Log.d(DEBUG_TAG, " id recettes : " + recipe.getId());
@@ -112,7 +118,8 @@ public class RecipesPageFragment extends Fragment {
         for (int i = 0; i < list.size(); i++)
         {
             Log.d(DEBUG_TAG, "ID : " + list.get(i));
-            img.get(i).setVisibility(View.VISIBLE);
+            if (i < img.size())
+                img.get(i).setVisibility(View.VISIBLE);
         }
 
         wine_1.setOnClickListener(new View.OnClickListener() {

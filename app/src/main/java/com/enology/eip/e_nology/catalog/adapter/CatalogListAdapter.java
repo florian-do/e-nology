@@ -32,6 +32,7 @@ public class CatalogListAdapter extends ArrayAdapter<getBottlesResponse>
         TextView    name;
         TextView    domain;
         TextView    year;
+        TextView    price;
         ImageView   img;
     }
 
@@ -58,6 +59,7 @@ public class CatalogListAdapter extends ArrayAdapter<getBottlesResponse>
             holder.domain = (TextView) convertView.findViewById(R.id.recipes_list_domain);
             holder.img = (ImageView) convertView.findViewById(R.id.recipes_list_image);
             holder.year = (TextView) convertView.findViewById(R.id.recipes_list_year);
+            holder.price = (TextView) convertView.findViewById(R.id.catalog_list_price);
             convertView.setTag(holder);
         }
         else
@@ -69,6 +71,7 @@ public class CatalogListAdapter extends ArrayAdapter<getBottlesResponse>
         if (objects.get(position).getDomain() != null)
             holder.domain.setText(objects.get(position).getDomain().getCity());
         holder.year.setText(objects.get(position).getYear());
+        holder.price.setText(objects.get(position).getPrice()+" "+context.getString(R.string.euro));
         return convertView;
     }
 
@@ -92,5 +95,11 @@ public class CatalogListAdapter extends ArrayAdapter<getBottlesResponse>
             default:
                 return R.drawable.wine_1;
         }
+    }
+
+    public synchronized void refreshAdapter(List<getBottlesResponse> items) {
+        objects.clear();
+        objects.addAll(items);
+        notifyDataSetChanged();
     }
 }

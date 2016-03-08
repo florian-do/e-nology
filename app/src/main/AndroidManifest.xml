@@ -1,27 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.enology.eip.e_nology" >
+    package="com.enology.eip.e_nology">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.NFC" />
 
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
-
-        <meta-data android:name="AA_DB_NAME" android:value="enology.db" />
-        <meta-data android:name="AA_DB_VERSION" android:value="1" />
-        <meta-data android:name="AA_MODELS"
+        android:theme="@style/AppTheme">
+        <meta-data
+            android:name="AA_DB_NAME"
+            android:value="enology.db" />
+        <meta-data
+            android:name="AA_DB_VERSION"
+            android:value="1" />
+        <meta-data
+            android:name="AA_MODELS"
             android:value="com.enology.eip.e_nology.orm.model.Bottle, com.enology.eip.e_nology.orm.model.Domain" />
 
         <activity
             android:name=".login.LoginActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
-            android:theme="@style/LoginScreen" >
+            android:theme="@style/LoginScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -30,14 +35,30 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:label="@string/title_activity_main" >
-        </activity>
+            android:label="@string/title_activity_main" />
         <activity
             android:name=".SplashActivity"
             android:label="@string/title_activity_splash"
             android:screenOrientation="portrait"
-            android:theme="@style/SplashScreen" >
+            android:theme="@style/SplashScreen" />
+        <activity
+            android:name=".cave.nfc.NfcActivity"
+            android:label="@string/title_activity_nfc"
+            android:screenOrientation="portrait"
+            android:theme="@style/NfcScreen" />
+        <activity
+            android:name=".catalog.page.CatalogPageActivity"
+            android:label="@string/title_activity_catalog_page"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/CatalogPage">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.enology.eip.e_nology.MainActivity" />
         </activity>
+        <activity
+            android:name=".cave.AddBottleActivity"
+            android:label="@string/title_activity_add_bottle"
+            android:theme="@style/CatalogPage"></activity>
     </application>
 
 </manifest>

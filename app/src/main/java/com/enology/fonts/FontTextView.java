@@ -37,3 +37,4 @@ public class FontTextView extends TextView
         setTypeface(mTypeface);
     }
 }
+

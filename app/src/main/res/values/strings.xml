@@ -3,31 +3,39 @@
 
     <string name="app_name">E-Nology</string>
     <string name="hello_world">Hello world!</string>
-    <string name="welcome">Welcome to E-nology</string>
-    <string name="action_settings_add_scanner">Add from scanner</string>
-    <string name="action_settings_add_nfc">Add from NFC</string>
-    <string name="action_settings_add">Add a bottle</string>
-    <string name="action_search">Search</string>
-    <string name="text_button_signin">Sign in</string>
-    <string name="text_button_signup">New here ? Sign up</string>
-    <string name="text_button_password_recovery">Forgot password ?</string>
+    <string name="welcome">Bienvenue sur E-nology</string>
+    <string name="action_settings_add_scanner">Ajouter via Codebarre</string>
+    <string name="action_settings_add_nfc">Ajouter via NFC</string>
+    <string name="action_settings_add">Ajouter une bouteille</string>
+    <string name="action_search">Rechercher</string>
+    <string name="text_button_signin">Se Connecter</string>
+    <string name="text_button_signup">S\'inscrire</string>
+    <string name="text_button_password_recovery">Mot de passe oublier ?</string>
     <string name="text_edittext_email">E-mail Adress</string>
     <string name="text_edittext_password">*********</string>
 
-    <string name="text_login_fragment_signup_message">Signup for free !</string>
-    <string name="text_login_fragment_signup_hint_firstname" >First name</string>
-    <string name="text_login_fragment_signup_hint_lastname" >Last name</string>
-    <string name="text_login_fragment_signup_hint_username" >User name</string>
-    <string name="text_login_fragment_signup_button_signup" >Register now !</string>
-    <string name="text_login_fragment_signup_text_arrow_right">Already have an account?</string>
+    <string name="text_login_fragment_signup_message">S\'inscrire gratuitement !</string>
+    <string name="text_login_fragment_signup_hint_firstname">Prénom</string>
+    <string name="text_login_fragment_signup_hint_lastname">Nom</string>
+    <string name="text_login_fragment_signup_hint_username">Utilisateur</string>
+    <string name="text_login_fragment_signup_button_signup">S\'inscrire</string>
+    <string name="text_login_fragment_signup_text_arrow_right">Vous avez déjà un compte ?</string>
 
     <string name="text_login_fragment_passwordrecovery_message">Recover Account</string>
     <string name="text_login_fragment_passwordrecovery_hint">In the textbox below, enter the email address associated with your account, then click the "Reset Password" button.</string>
-    <string name="text_login_fragment_passwordrecovery_button_recovery" >Reset Password</string>
+    <string name="text_login_fragment_passwordrecovery_button_recovery">Reset Password</string>
     <string name="text_login_fragment_passwordrecovery_text_arrow_right">You have found your password ?</string>
 
     <string name="recettes_search_bar">Rechercher une recette</string>
     <string name="recettes_hint_text">Recherchez votre recette ici</string>
+
+    <string name="nfc_text">Approchez un tag NFC</string>
+
+    <string name="menu_cave">Ma Cave</string>
+    <string name="menu_catalog">Catalogue</string>
+    <string name="menu_recipes">Recettes</string>
+    <string name="menu_stats">Statistiques</string>
+    <string name="menu_news">Actualités</string>
 
     <string name="title_activity_my_menu">MyMenuActivity</string>
     <string name="title_section1">Section 1</string>
@@ -41,12 +49,40 @@
     <string name="title_activity_main">MainActivity</string>
     <string name="cave_page_redeem">Redeem</string>
     <string name="cave_page_remove">Remove</string>
-    <string name="catalog_page_drink">Drink IT</string>
+    <string name="catalog_page_drink">Bouteille bue</string>
     <string name="catalog_page_buy">Remove</string>
 
-<!-- TODO: Remove this text -->
+    <string name="text_stats_nb_bottles">Nombre de bouteilles</string>
+    <string name="text_stats_nb_bottles_open">Nombre de bouteilles ouvertes</string>
+    <string name="text_stats_price_total_cave">Prix total de la cave</string>
+    <string name="text_stats_average_bottle_price">Prix moyen des bouteilles</string>
+    <string name="text_stats_favorite_wine">Type de vin préféré</string>
+    <string name="text_stats_nb_bottles_rose">Nombre de rosés</string>
+    <string name="text_stats_nb_bottles_red">Nombre de rouges</string>
+    <string name="text_stats_nb_bottles_white">Nombre de blancs</string>
+    <string name="text_stats_past_most_expensive_bottle">Bouteille la plus chère obtenue</string>
+    <string name="text_stats_past_oldest_bottle">Bouteille la plus vieille obtenue</string>
+    <string name="text_stats_current_most_expensive_bottle">Bouteille la plus chère dans la cave</string>
+    <string name="text_stats_current_oldest_bottle">Bouteille la plus vieille dans la cave</string>
+
+    <string name="text_cave_add_nom">Nom</string>
+    <string name="text_cave_add_cru">Cru</string>
+    <string name="text_cave_add_grade">Grade</string>
+
+    <string name="text_cave_add_annee">Année</string>
+    <string name="text_cave_add_prix">Prix (Euro)</string>
+    <string name="text_cave_add_date_opti">Date optimale de consommation</string>
+    <string name="text_cave_add_note">Note</string>
+    <string name="text_cave_add_submit">Ajouter</string>
+
+    <!-- TODO: Remove this text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_splash">SplashActivity</string>
     <string name="euro">€</string>
+    <string name="title_activity_nfc">NfcActivity</string>
+    <string name="title_activity_catalog_page">CatalogPageActivity</string>
+    <string name="action_settings">Settings</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="title_activity_add_bottle">AddBottleActivity</string>
 
 </resources>
