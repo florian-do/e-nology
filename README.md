@@ -10,28 +10,21 @@ E-nology is a connected wine cellar which aim is to simplify user experience. Us
 intuitive, it will consist of an HD screen and a touch screen that will act as a door. Meanwhile the
 system will be hosted on a Windows 8 computer fully integrated into the wine cellar door.
 
-### What is this repository for? ###
+### External Library used ###
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+* Retrofit 1.9
+* Ultra PTR 1.0.9 (Pull to refresh Lib)
+* ActiveAndroid 3.1 (ORM) - Partial use
+* Zbar (Barcode Scanner)
+* Fresco (0.9) Facebook Image Library
 
 ### How do I get set up? ###
 
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
+* Android Studio 1.5
+* MinSdk 14
+* targetSdk 21
+* applicationId "com.enology.eip.e_nology"
 
 ### Contribution guidelines ###
 
-* Writing tests
-* Code review
-* Other guidelines
-
-### Who do I talk to? ###
-
-* Repo owner or admin
-* Other community or team contact
+I (do_f) wrote all the code
