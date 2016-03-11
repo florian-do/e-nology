@@ -10,6 +10,10 @@ E-nology is a connected wine cellar which aim is to simplify user experience. Us
 intuitive, it will consist of an HD screen and a touch screen that will act as a door. Meanwhile the
 system will be hosted on a Windows 8 computer fully integrated into the wine cellar door.
 
+#### Note : ####
+
+THIS PROJECT IS NO LONGER BEING MAINTAINED
+
 ### External Library used ###
 
 * Retrofit 1.9
