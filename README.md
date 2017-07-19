@@ -2,7 +2,7 @@
 
 This is my first android project for my final project graduation at Epitech (EIP - Epitech Innovative Project)
 
-[![](http://62-210-36-42.rev.poneytelecom.eu/~do_f/android/logomono-google-play-mono.png)](https://play.google.com/store/apps/details?id=com.enology.eip.e_nology)
+[![](http://lapusheen.chat/~do_f/android/logomono-google-play-mono.png)](https://play.google.com/store/apps/details?id=com.enology.eip.e_nology)
 
 ### Note : ###
 
